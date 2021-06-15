@@ -7,8 +7,9 @@
 	html,
 	body,
 	#__next {
-		@apply h-full text-gray-700;
+		@apply h-full text-gray-600;
 		font-family: Raleway, sans-serif;
+		font-weight: 500;
 	}
 
 	@supports selector(A:focus-visible) {

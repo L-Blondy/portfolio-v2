@@ -1,0 +1,37 @@
+.gradient {
+	--clr: #f4f4f4;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+}
+
+.gradient::before {
+	content: '';
+	height: 100%;
+	width: 52%;
+	min-width: 400px;
+	background: var(--clr);
+}
+
+.gradient::after {
+	content: '';
+	height: 100%;
+	width: 48%;
+	min-width: 400px;
+	background: linear-gradient(90deg, var(--clr) 0, rgba(255, 255, 255, 0.2) 100%);
+}
+
+@media (max-width: 768px) {
+	.gradient::after {
+		background: linear-gradient(90deg, var(--clr) 0, rgba(255, 255, 255, 0.5) 100%);
+	}
+}
+
+@media (max-width: 550px) {
+	.gradient::before {
+		min-width: 200px;
+	}
+}

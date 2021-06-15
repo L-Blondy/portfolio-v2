@@ -1,6 +1,8 @@
 import Head from 'next/head'
-import { Header } from 'views/Header'
 import { Navbar } from 'views/Navbar'
+import { Header } from 'views/Header'
+import { Profile } from 'views/Profile'
+import { Skills } from 'views/Skills'
 
 
 export default function Home() {
@@ -17,10 +19,11 @@ export default function Home() {
       <Header />
 
       <main className='main'>
-        <h2>Main</h2>
+        <Profile />
+        <Skills />
       </main>
 
-      <footer className={'footer'}>
+      <footer className={'footer h-64'}>
         <h2>Footer</h2>
       </footer>
     </>
