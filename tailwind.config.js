@@ -30,10 +30,21 @@ module.exports = {
         'xs': '500px',
         ...defaultTheme.screens,
       },
+      translate: {
+        '2/5': '40%',
+      },
+    },
+    scale: {
+      '80': '0.8',
+      '85': '0.85',
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      // opacity: [ 'disabled' ],
+      // textDecoration: [ 'disabled' ],
+      // cursor: [ 'disabled' ],
+    }
   },
   plugins: [],
 };

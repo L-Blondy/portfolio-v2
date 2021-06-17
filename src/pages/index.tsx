@@ -3,6 +3,7 @@ import { Navbar } from 'views/Navbar'
 import { Header } from 'views/Header'
 import { Profile } from 'views/Profile'
 import { Skills } from 'views/Skills'
+import { Projects } from 'views/Projects'
 
 
 export default function Home() {
@@ -21,6 +22,8 @@ export default function Home() {
       <main className='main'>
         <Profile />
         <Skills />
+        <div className='divider mt-20 md:mt-24 lg:mt-28' />
+        <Projects />
       </main>
 
       <footer className={'footer h-64'}>

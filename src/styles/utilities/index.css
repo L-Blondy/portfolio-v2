@@ -17,4 +17,8 @@
 	.-z-1 {
 		z-index: -1;
 	}
+
+	.flex-center {
+		@apply flex items-center justify-center;
+	}
 }

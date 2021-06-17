@@ -14,9 +14,9 @@ export const Skills = () => {
 	const [ activeTab, setActiveTab ] = useState<TAB>(TAB.FRONTEND)
 
 	return (
-		<article className='overflow-hidden pb-32'>
+		<article className='overflow-hidden'>
 			<div className='container'>
-				<header className='flex flex-col items-center my-16 md:mt-24 md:mb-20 lg:mt-32 lg:mb-20'>
+				<header className='flex flex-col items-center mb-16 mt-20 md:mt-24 md:mb-20 lg:mt-32 lg:mb-20'>
 					<h1>My Skills</h1>
 					<div className='flex items-center mt-4'>
 						<button
@@ -105,7 +105,7 @@ function Skill({
 	return (
 		<div className={`flex justify-center ${className}`}>
 			<div className='inline-flex flex-col text-center w-52'>
-				<Image src={icon} height={48} width={48} />
+				<Image src={icon} height={48} width={48} loading='eager' />
 				<h2 className='text-xl mt-3.5 mb-1.5 text-gray-700'>{title}</h2>
 				<p className='opacity-90'>{content}</p>
 			</div>

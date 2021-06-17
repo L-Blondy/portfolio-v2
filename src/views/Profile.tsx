@@ -22,6 +22,7 @@ export const Profile = () => {
 						objectPosition='right'
 						layout='fill'
 						className='min-h-full'
+						loading='eager'
 					/>
 				</div>
 				<div className={css.gradient} />
