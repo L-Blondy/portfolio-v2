@@ -1,13 +1,11 @@
 import { useState } from 'react'
-import Image from 'next/image'
+import { Skill } from 'components/Skill'
 
 
 enum TAB {
 	FRONTEND = 'frontend',
 	BACKEND = 'backend',
 }
-
-// const transformSMClass = ''// 'transform translate-y-28 md:translate-y-0'
 
 export const Skills = () => {
 
@@ -27,7 +25,8 @@ export const Skills = () => {
 						<div className='w-px h-5 bg-current opacity-70' />
 						<button
 							onClick={() => setActiveTab(TAB.BACKEND)}
-							className={`link px-3 py-1 font-medium ${activeTab === TAB.BACKEND ? 'active font-semibold' : ''}`}>
+							className={`link px-3 py-1 font-medium ${activeTab === TAB.BACKEND ? 'active font-semibold' : ''}`}
+							disabled>
 							Backend
 						</button>
 					</div>
@@ -85,30 +84,5 @@ export const Skills = () => {
 				</section>
 			</div>
 		</article>
-	)
-}
-
-interface SkillProps {
-	icon: string
-	title: string
-	content: string
-	className: string
-}
-
-function Skill({
-	icon,
-	title,
-	content,
-	className
-}: SkillProps) {
-
-	return (
-		<div className={`flex justify-center ${className}`}>
-			<div className='inline-flex flex-col text-center w-52'>
-				<Image src={icon} height={48} width={48} loading='eager' />
-				<h2 className='text-xl mt-3.5 mb-1.5 text-gray-700'>{title}</h2>
-				<p className='opacity-90'>{content}</p>
-			</div>
-		</div>
 	)
 }

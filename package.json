@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@react-hook/window-size": "^3.0.7",
     "@types/node": "^15.3.0",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.5",

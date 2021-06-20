@@ -33,10 +33,14 @@ module.exports = {
       translate: {
         '2/5': '40%',
       },
-    },
-    scale: {
-      '80': '0.8',
-      '85': '0.85',
+      transitionDuration: {
+        '2000': '2000ms',
+        '3000': '3000ms',
+      },
+      scale: {
+        '80': '0.8',
+        '85': '0.85',
+      },
     },
   },
   variants: {
