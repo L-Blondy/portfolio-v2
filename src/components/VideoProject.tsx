@@ -4,10 +4,9 @@ import { Video } from 'components/Video'
 import { Button } from 'components/Button'
 import Link from 'next/link'
 import { cn } from 'utils/cn'
-import { BaseProjectProps } from 'data'
+import { BaseProjectProps, ProjectConfig } from 'types'
+import { VIDEO_PLAYBACK_RATE } from 'config'
 
-
-const PLAYBACK_RATE = 1
 
 enum DEVICE {
 	PHONE = 'phone',
@@ -17,8 +16,8 @@ enum DEVICE {
 interface Props extends BaseProjectProps {
 	canPlay: boolean
 	onObserverEntry: (e: IntersectionObserverEntry) => void
-	srcTablet: string
-	srcPhone: string
+	srcTablet: ProjectConfig[ 'VIDEO' ][ 'TABLET' ]
+	srcPhone: ProjectConfig[ 'VIDEO' ][ 'PHONE' ]
 }
 
 export const VideoProject = ({
@@ -59,7 +58,7 @@ export const VideoProject = ({
 						type='video/mp4'
 						play={canPlay && device === DEVICE.TABLET}
 						onEnded={() => setDevice(DEVICE.PHONE)}
-						playbackRate={PLAYBACK_RATE}
+						playbackRate={VIDEO_PLAYBACK_RATE}
 						controls={false}
 						muted
 					/>
@@ -82,8 +81,9 @@ export const VideoProject = ({
 							type='video/mp4'
 							play={canPlay && device === DEVICE.PHONE}
 							onEnded={() => setDevice(DEVICE.TABLET)}
-							playbackRate={PLAYBACK_RATE}
+							playbackRate={VIDEO_PLAYBACK_RATE}
 							controls={false}
+
 							muted
 						/>
 					</div>

@@ -1,3 +1,7 @@
 @import './base/index.css';
 @import './components/index.css';
 @import './utilities/index.css';
+
+body {
+	/* background: #fcfcfc; */
+}

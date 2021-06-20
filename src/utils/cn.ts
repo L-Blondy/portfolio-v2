@@ -1,3 +1,6 @@
+/**
+ * Template string based utility function for setting classNames  
+ */
 export const cn = (template: TemplateStringsArray, ...args: (string | boolean | undefined | number | null)[]) => {
 	let res = ''
 

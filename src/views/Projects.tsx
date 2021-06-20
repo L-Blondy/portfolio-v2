@@ -3,6 +3,7 @@ import { cn } from 'utils/cn';
 import { useWindowWidth } from '@react-hook/window-size';
 import { ImageProjects } from 'components/ImageProjects'
 import { VideoProjects } from 'components/VideoProjects'
+import { useIsMountedState } from 'hooks/useIsMountedState';
 
 // const ImageProjects = dynamic<{}>(
 // 	() => import('components/ImageProjects').then(mod => mod.ImageProjects),
@@ -23,10 +24,9 @@ enum TAB {
 
 export const Projects = () => {
 
-	const [ isMounted, setIsMounted ] = useState(false)
+	const isMounted = useIsMountedState()
 	const [ activeTab, setActiveTab ] = useState<TAB>(TAB.FRONTEND)
 
-	useEffect(() => setIsMounted(true), [])
 	const width = useWindowWidth()
 
 

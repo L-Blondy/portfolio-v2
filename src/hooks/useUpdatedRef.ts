@@ -1,11 +1,16 @@
 import { useRef, useEffect } from 'react'
 
+/**
+ * Updates the reference everytime the value changes
+ * @param val 
+ * @returns valRef
+ */
 export const useUpdatedRef = <T extends unknown>(val: T) => {
-	const dataRef = useRef<T>(val)
+	const valRef = useRef<T>(val)
 
 	useEffect(() => {
-		dataRef.current = val
+		valRef.current = val
 	})
 
-	return dataRef
+	return valRef
 }

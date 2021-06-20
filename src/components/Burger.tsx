@@ -1,12 +1,6 @@
 
 
-interface Props {
-
-}
-
-export const Burger = ({
-	...props
-}: Props) => {
+export const Burger = () => {
 
 
 

@@ -1,10 +1,11 @@
-import { cn } from 'utils/cn'
-import { BaseProjectProps } from 'data'
+import { BaseProjectProps, ProjectConfig } from 'types'
 import Link from 'next/link'
 import { Button } from 'components/Button'
+import { Slider } from 'components/Slider'
 
-
-export interface Props extends BaseProjectProps { }
+export interface Props extends BaseProjectProps {
+	images: ProjectConfig[ 'IMAGES' ]
+}
 
 export const ImageProject = ({
 	title,
@@ -12,6 +13,7 @@ export const ImageProject = ({
 	technologies,
 	githubUrl,
 	projectUrl,
+	images,
 }: Props) => {
 
 
@@ -19,11 +21,13 @@ export const ImageProject = ({
 	return (
 		<article id={title}>
 
-			<div className={cn`relative`} style={{ margin: '41% 0' }}>
-				<img src='/binaries.jpg' />
-			</div>
+			<Slider
+				images={images}
+				width={600}
+				height={300}
+			/>
 
-			<div className='flex flex-col gap-4'>
+			<div className='flex flex-col gap-4 mt-4'>
 				<h2 className='text-3xl'>{title}</h2>
 				<p>{description}</p>
 				<div className='flex gap-3 py-1'>

@@ -15,5 +15,14 @@
 
 	.video {
 		@apply shadow-lg rounded-lg;
+		box-shadow: 0 0 60px 0 #00000020, 0 13px 17px -7px #00000020;
+	}
+
+	.slider {
+		box-shadow: 0 0 5px 0 #00000020, 0 6px 10px -3px #00000010;
+	}
+
+	.slider-image {
+		@apply absolute inset-0 transform transition-transform duration-700;
 	}
 }
