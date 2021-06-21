@@ -20,6 +20,13 @@ module.exports = {
       colors: {
         primary: '#37AFCA',
       },
+      boxShadow: {
+        'outline-primary': '0 0 0 2px #37AFCA',
+      },
+      opacity: {
+        '15': '0.15',
+        '85': '0.85',
+      },
       maxWidth: {
         '2xs': '16rem',
         '1/2': '50%',
@@ -45,6 +52,7 @@ module.exports = {
   },
   variants: {
     extend: {
+      // outline: [ 'focus' ],
       // opacity: [ 'disabled' ],
       // textDecoration: [ 'disabled' ],
       // cursor: [ 'disabled' ],

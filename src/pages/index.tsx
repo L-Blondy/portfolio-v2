@@ -4,6 +4,8 @@ import { Header } from 'views/Header'
 import { Profile } from 'views/Profile'
 import { Skills } from 'views/Skills'
 import { Projects } from 'views/Projects'
+import { Resume } from 'views/Resume'
+import { Contact } from 'views/Contact'
 
 
 export default function Home() {
@@ -24,11 +26,12 @@ export default function Home() {
         <Skills />
         <div className='divider mt-20 md:mt-24 lg:mt-28' />
         <Projects />
+        <Resume />
       </main>
 
-      <footer className={'footer h-64'}>
-        <h2>Footer</h2>
-      </footer>
+      {/* <footer className='bg-gray-700 mt-20 py-12' style={{ background: '#3f4958' }}>
+        <Contact />
+      </footer> */}
     </>
   )
 }
