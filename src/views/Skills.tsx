@@ -32,7 +32,7 @@ export const Skills = () => {
 					</div>
 				</header>
 
-				<section className='grid grid-cols-2 gap-x-6 gap-y-16 md:grid-cols-6 md:gap-x-20 md:gap-y-20'>
+				<section className='grid grid-cols-2 gap-x-3 gap-y-16 md:grid-cols-6 md:gap-x-20 md:gap-y-20'>
 					<Skill
 						icon='/icons/typescript.svg'
 						title='Languages'

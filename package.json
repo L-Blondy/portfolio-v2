@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:local": "next dev -H 192.168.1.189",
     "build": "next build",
     "start": "next start",
     "test": "jest --watch"
@@ -20,10 +21,7 @@
     "react-intersection-observer": "^8.32.0"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.23",
-    "jest": "^27.0.4",
     "autoprefixer": "^10.2.5",
-    "babel-jest": "^27.0.2",
     "postcss": "^8.2.15",
     "tailwindcss": "^2.1.2",
     "typescript": "^4.2.4"

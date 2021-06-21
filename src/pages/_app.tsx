@@ -3,7 +3,7 @@ import Scrollbars from 'react-custom-scrollbars-2'
 
 function MyApp({ Component, pageProps }: any) {
   return (
-    <Scrollbars universal>
+    <Scrollbars className='app-scrollbars' universal>
       <Component {...pageProps} />
     </Scrollbars>
   )

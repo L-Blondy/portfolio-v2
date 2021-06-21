@@ -1,7 +1,7 @@
 import { SLIDER_INTERVAL } from 'config'
 import { useInterval } from 'hooks/useInterval'
 import Image from 'next/image'
-import { useState } from 'react'
+import { forwardRef, useState } from 'react'
 import { cn } from 'utils/cn'
 
 
@@ -9,18 +9,20 @@ interface Props {
 	images: [ string, string, string ]
 	height: number
 	width: number
+	canPlay: boolean
 }
 
-export const Slider = ({
+export const Slider = forwardRef<HTMLDivElement, Props>(({
 	images,
 	height,
 	width,
-}: Props) => {
+	canPlay,
+}, ref) => {
 
 	const [ playSlider, setPlaySlider ] = useState(true)
 	const [ idx, setIdx ] = useState(0)
 
-	useInterval(next, playSlider ? SLIDER_INTERVAL : 0)
+	useInterval(next, canPlay && playSlider ? SLIDER_INTERVAL : 0)
 
 	function next() {
 		setIdx(i => (i + 1) % 3)
@@ -32,7 +34,7 @@ export const Slider = ({
 	}
 
 	return (
-		<div className='relative pt-1/2 overflow-hidden rounded slider' onMouseEnter={() => setPlaySlider(false)} onMouseLeave={() => setPlaySlider(true)} onClick={handleClick}>
+		<div ref={ref} className='relative pt-1/2 overflow-hidden rounded slider' onMouseEnter={() => setPlaySlider(false)} onMouseLeave={() => setPlaySlider(true)} onClick={handleClick}>
 			<div className={cn`slider-image ${getTransform(0, idx)} ${getZIndex(0, idx)} ${getDelay(0, idx)}`}>
 				<Image src={images[ 0 ]} layout='responsive' width={width} height={height} />
 			</div>
@@ -44,7 +46,7 @@ export const Slider = ({
 			</div>
 		</div>
 	)
-}
+})
 
 export function isBefore(selfIdx: number, idx: number): boolean {
 	return (idx + 3 - selfIdx) % 3 === 1
