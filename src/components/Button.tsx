@@ -13,10 +13,10 @@ export const Button = ({
 	style = {},
 	...props
 }: Props) => {
-	const shared = 'border-2 border-primary inline-flex items-center justify-center gap-1.5 pt-2 pb-1.5 px-3.5 max-w-2xs rounded'
+	const shared = 'border-2 border-primary inline-flex items-center justify-center gap-1.5 pt-2 pb-1.75 px-3.5 max-w-2xs rounded hover:filter hover:brightness-110 transition-all duration-100'
 
 	const specific = outlined
-		? 'bg-transparent text-primary  '
+		? 'bg-transparent text-primary '
 		: 'bg-primary text-white'
 
 	style = {

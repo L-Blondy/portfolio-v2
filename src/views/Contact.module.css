@@ -1,20 +1,37 @@
+.container {
+	@apply flex 
+		flex-col;
+}
+
 .label {
 	@apply flex
 		flex-col
+		mb-0.5
 		font-semibold
-		text-white
 		text-opacity-80;
 }
 
 .field {
-	@apply bg-white 
-		bg-opacity-15
-		font-medium
+	border: 1px solid #1a6575aa;
+	@apply font-medium
 		px-2.5
-		py-2
-		rounded-sm
-		text-white
+		py-1
 		text-opacity-100
+		transition-colors
 		focus:outline-none
-		focus:shadow-outline-primary;
+		focus:shadow-outline-primary
+		focus:bg-transparent
+		focus:rounded
+		focus:border-primary;
+}
+
+.field[name='email']:not(:focus),
+.field[name='fullname']:not(:focus) {
+	border-top-color: transparent;
+	border-left-color: transparent;
+	border-right-color: transparent;
+}
+
+.field[name='message'] {
+	@apply py-2 rounded mt-4;
 }

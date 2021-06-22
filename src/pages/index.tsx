@@ -27,11 +27,12 @@ export default function Home() {
         <div className='divider mt-20 md:mt-24 lg:mt-28' />
         <Projects />
         <Resume />
+        <Contact />
       </main>
 
-      {/* <footer className='bg-gray-700 mt-20 py-12' style={{ background: '#3f4958' }}>
-        <Contact />
-      </footer> */}
+      <footer className='bg-gray-600 mt-24 py-12 text-white'>
+        <div className='container'>asad</div>
+      </footer>
     </>
   )
 }

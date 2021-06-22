@@ -19,9 +19,13 @@ module.exports = {
     extend: {
       colors: {
         primary: '#37AFCA',
+        'primary-xdark': '#1a6575',
       },
       boxShadow: {
-        'outline-primary': '0 0 0 2px #37AFCA',
+        'outline-primary': '0 0 0 1px #37AFCA',
+      },
+      padding: {
+        '1.75': '0.4375rem'
       },
       opacity: {
         '15': '0.15',
@@ -56,6 +60,12 @@ module.exports = {
       // opacity: [ 'disabled' ],
       // textDecoration: [ 'disabled' ],
       // cursor: [ 'disabled' ],
+      borderRadius: [ 'focus' ],
+      brightness: [ 'hover' ],
+      filter: [ 'hover' ],
+      // gridColumn: [ 'responsive' ],
+      // gridColumnStart: [ 'responsive' ],
+      // gridColumnEnd: [ 'responsive' ],
     }
   },
   plugins: [],
