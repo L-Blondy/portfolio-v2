@@ -20,7 +20,7 @@ export const Skills = () => {
 				<header id={SECTION_ID.SKILLS} className='flex flex-col items-center pt-8 mb-16 mt-12 md:mt-16 md:mb-20 lg:mt-24 lg:mb-20'>
 					<InView>
 						{({ ref, inView }) => (<>
-							<h1 ref={ref} className={cn`opacity-0 ${inView && 'animate-fadein'} await-100`}>My Skills</h1>
+							<h1 ref={ref} className={cn`opacity-0 ${inView && 'animate-fadein'} await-100 speed-1500`}>My Skills</h1>
 							<div className='flex items-center mt-4'>
 								<button
 									onClick={() => setActiveTab(TAB.FRONTEND)}

@@ -2,7 +2,7 @@ import { ProjectConfig } from 'types'
 
 export const SLIDER_INTERVAL = 5000
 
-export const VIDEO_PLAYBACK_RATE = 5
+export const VIDEO_PLAYBACK_RATE = 1
 
 export const FOOTER_BACKGROUND_COLOR = '#333f42'
 
