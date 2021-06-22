@@ -1,12 +1,55 @@
 import css from './Contact.module.css'
 import { Button } from 'components/Button'
+import { postContactForm } from 'async/postContactForm'
+import { useEffect, useRef, useState } from 'react'
+import { LoadingIcon } from 'components/icons/LoadingIcon'
+import { SuccessIcon } from 'components/icons/SuccessIcon'
+import { cn } from 'utils/cn'
+import { notify } from 'utils/notify'
 
+
+enum CONTACT_FORM_FIELD {
+	EMAIL = 'email',
+	FULLNAME = 'fullname',
+	MESSAGE = 'message',
+}
 
 export const Contact = () => {
 
+	const formRef = useRef<HTMLFormElement | null>(null)
+	const [ isSubmitting, setIsSubmitting ] = useState(false)
+	const [ sentWithSuccess, setSentWithSuccess ] = useState(false)
+	const [ messageCount, setMessageCount ] = useState(0)
+
+	useEffect(() => {
+		messageCount && formRef.current?.reset()
+	}, [ messageCount ])
+
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
-		const elements = e.currentTarget.elements
-		console.log(elements)
+		e.preventDefault()
+		const elements: (HTMLInputElement | HTMLTextAreaElement | HTMLButtonElement)[] = [].slice.call(e.currentTarget.elements) as any
+
+		const values = elements.reduce((values, el) => {
+			const fieldName = el.name as CONTACT_FORM_FIELD | undefined
+			const fieldValue = el.value
+			if (!fieldName || !fieldValue) return values
+			return { ...values, [ fieldName ]: fieldValue }
+		}, {} as Record<CONTACT_FORM_FIELD, string>)
+		setIsSubmitting(true)
+
+		postContactForm(values)
+			.then(() => {
+				setSentWithSuccess(true)
+				notify('success')('Your message was sent with success!')
+			})
+			.catch(() => {
+				setSentWithSuccess(false)
+				notify('danger')('An unknown error has occured. Please try again later.')
+			})
+			.finally(() => {
+				setIsSubmitting(false)
+				setMessageCount(c => c + 1)
+			})
 	}
 
 	return (
@@ -16,43 +59,53 @@ export const Contact = () => {
 				<p className='opacity-80 text-lg'>Feel free to reach out.<br /> I'd love to hear from you!</p>
 			</div>
 
-			<form className='flex flex-col gap-6 md:grid md:grid-cols-2 lg:mt-1 self-center w-full max-w-lg' style={{ fontSize: '17px' }} onSubmit={handleSubmit}>
+			<form ref={formRef} className='flex flex-col gap-6 md:grid md:grid-cols-2 lg:mt-1 self-center w-full max-w-lg' style={{ fontSize: '17px' }} onSubmit={handleSubmit}>
 				<div className={css.container}>
-					<label className={css.label} htmlFor='email' />
+					<label className={css.label} htmlFor={CONTACT_FORM_FIELD.EMAIL} />
 
 					<input
 						className={css.field}
 						type='email'
-						name='email'
-						id='email'
+						name={CONTACT_FORM_FIELD.EMAIL}
+						id={CONTACT_FORM_FIELD.EMAIL}
 						placeholder='Enter your email'
+						maxLength={100}
+						required
 					/>
 				</div>
 
 				<div className={css.container}>
-					<label className={css.label} htmlFor='fullname' />
+					<label className={css.label} htmlFor={CONTACT_FORM_FIELD.FULLNAME} />
 					<input
 						className={css.field}
 						type='text'
-						name='fullname'
-						id='fullname'
+						name={CONTACT_FORM_FIELD.FULLNAME}
+						id={CONTACT_FORM_FIELD.FULLNAME}
 						placeholder='Enter your name'
+						minLength={3}
+						maxLength={60}
+						required
 					/>
 				</div>
 
 				<div className={`md:col-span-2 ${css.container}`}>
-					<label className={css.label} htmlFor='message' />
+					<label className={css.label} htmlFor={CONTACT_FORM_FIELD.MESSAGE} />
 
 					<textarea
 						className={css.field}
-						name='message'
-						id='message'
+						name={CONTACT_FORM_FIELD.MESSAGE}
+						id={CONTACT_FORM_FIELD.MESSAGE}
 						rows={10}
 						placeholder='Your message here'
+						minLength={20}
+						maxLength={1000}
+						required
 					/>
 				</div>
 				<div className='flex items-center justify-center md:col-span-2'>
-					<Button className='w-44 mt-2'>SEND MESSAGE</Button>
+					<Button className='w-44 mt-2' disabled={isSubmitting}>
+						SEND MESSAGE {isSubmitting ? <LoadingIcon className='ml-0.5' width={18} strokeWidth={6} /> : sentWithSuccess ? <SuccessIcon className='mx-0.5' /> : ''}
+					</Button>
 				</div>
 			</form>
 		</div>

@@ -1,4 +1,5 @@
 @tailwind components;
+@import './toast.css';
 
 @layer components {
 	.link {
