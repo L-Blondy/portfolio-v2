@@ -2,22 +2,57 @@ import css from './Profile.module.css'
 import Image from 'next/image'
 import { SECTION_ID } from 'types'
 import { scrollsToSection } from 'utils/scrollsToSection'
+import { TypeWriter } from 'components/TypeWriter';
+import { InView } from 'react-intersection-observer';
+import { cn } from 'utils/cn';
+import { useState } from 'react';
+
 
 export const Profile = () => {
+
+	const [ isTitleTyped, setIsTitleTyped ] = useState(false)
 
 	return (
 		<article id={SECTION_ID.PROFILE} className='relative -mt-10 2xs:my-0 overflow-hidden'>
 			<div className='container py-14 md:py-16 lg:py-20 xl:py-24'>
 				<div className='md:w-2/3 xs:text-lg'>
-					<h1 className='pb-6'>Hi, I’m Laurent.</h1>
-					<p className='pb-4 md:opacity-90'>I am a front-end software developer currently working at Cenozai where I build web applications for data visualization and processing. </p>
-					<p className='pb-4 md:opacity-90'>Well organized person, problem solver, independant employee and strong team player, I love working on ambitious projects with positive people.</p>
-					<p className='pb-4 md:opacity-90'>I strive for clean, reusable and maintainable code. A healthy code base is key to making great products!</p>
-					<button
-						className='link text-primary leading-9 pr-4'
-						onClick={scrollsToSection(SECTION_ID.CONTACT)}>
-						Let’s have a chat.
-					</button>
+
+					<h1 className='pb-6'>
+						<InView triggerOnce>
+							{({ ref, inView }) => (
+								<div ref={ref}>
+									<TypeWriter startDelay={0} avgTypingDelay={100} disabled={!inView} onTypingDone={() => setTimeout(() => setIsTitleTyped(true), 3500)} >
+										Hi, I’m Laurent.
+									</TypeWriter>
+								</div>
+							)}
+						</InView>
+					</h1>
+
+					<div className='flex flex-col gap-4' >
+						<p className='filter brightness-110'>
+							I am a front-end software developer currently working at Cenozai where I build web applications for data visualization and processing.
+						</p>
+						<p className='filter brightness-110'>
+							Well organized person, problem solver, independant employee and strong team player, I love working on ambitious projects with positive people.
+						</p>
+						<p className='filter brightness-110'>
+							I strive for clean, reusable and maintainable code. A healthy code base is key to making great products!
+						</p>
+						<InView triggerOnce>
+							{({ ref, inView }) => (
+								<button
+									ref={ref}
+									className={`link text-primary self-start leading-9 pr-4 opacity-0 speed-700 ${inView && 'animate-from-right await-500'}`}
+									onClick={scrollsToSection(SECTION_ID.CONTACT)}>
+									<TypeWriter startDelay={350} avgTypingDelay={70} disabled={!inView || !isTitleTyped}>
+										Let’s have a chat.
+									</TypeWriter>
+								</button>
+							)}
+						</InView>
+					</div>
+
 				</div>
 			</div>
 			<div className='absolute inset-0 -z-1'>
@@ -33,6 +68,6 @@ export const Profile = () => {
 				</div>
 				<div className={css.gradient} />
 			</div>
-		</article>
+		</article >
 	)
 }
