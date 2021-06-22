@@ -103,7 +103,7 @@ export const Contact = () => {
 					/>
 				</div>
 				<div className='flex items-center justify-center md:col-span-2'>
-					<Button className='w-44 mt-2' disabled={isSubmitting}>
+					<Button className='w-40 mt-2' disabled={isSubmitting}>
 						SEND MESSAGE {isSubmitting ? <LoadingIcon className='ml-0.5' width={18} strokeWidth={6} /> : sentWithSuccess ? <SuccessIcon className='mx-0.5' /> : ''}
 					</Button>
 				</div>

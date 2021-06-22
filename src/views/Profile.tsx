@@ -14,7 +14,7 @@ export const Profile = () => {
 					<p className='pb-4 md:opacity-90'>Well organized person, problem solver, independant employee and strong team player, I love working on ambitious projects with positive people.</p>
 					<p className='pb-4 md:opacity-90'>I strive for clean, reusable and maintainable code. A healthy code base is key to making great products!</p>
 					<button
-						className='link text-primary'
+						className='link text-primary leading-9 pr-4'
 						onClick={scrollsToSection(SECTION_ID.CONTACT)}>
 						Let’s have a chat.
 					</button>

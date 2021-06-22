@@ -23,6 +23,7 @@ module.exports = {
         'fadein': 'fadein 1000ms forwards',
         'fadein-fast': 'fadein 300ms forwards',
         'fadein-xfast': 'fadein 150ms forwards',
+        'scalein-fast': 'scalein 150ms forwards',
       },
       colors: {
         primary: '#37AFCA',

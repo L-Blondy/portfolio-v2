@@ -35,7 +35,7 @@ export const Burger: React.FC<Props> = ({
 					inset-0
 					flex-col
 					justify-center
-					gap-y-6
+					gap-y-2
 					pb-14
 					sm:pb-24
 					text-center

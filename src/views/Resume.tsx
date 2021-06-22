@@ -16,7 +16,7 @@ export const Resume = () => {
 				</div>
 				<ResumeLink className='self-center'>
 					<Button
-						className='pl-5 pr-5 mt-1.5 leading-6 text-white text-opacity-85 md:w-44'
+						className='pl-5 pr-5 mt-1.5 leading-6 text-white text-opacity-85 md:w-40'
 						style={{ backgroundColor: '#4fd6ff61', borderColor: 'transparent', fontSize: '18px', paddingBottom: '0.5rem' }}>
 						View Resume
 					</Button>
