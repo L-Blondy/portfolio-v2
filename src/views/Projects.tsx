@@ -1,19 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { cn } from 'utils/cn';
 import { useWindowWidth } from '@react-hook/window-size';
 import { ImageProjects } from 'components/ImageProjects'
 import { VideoProjects } from 'components/VideoProjects'
 import { useIsMountedState } from 'hooks/useIsMountedState';
-
-// const ImageProjects = dynamic<{}>(
-// 	() => import('components/ImageProjects').then(mod => mod.ImageProjects),
-// 	{ ssr: true }
-// )
-
-// const VideoProjects = dynamic<{}>(
-// 	() => import('components/VideoProjects').then(mod => mod.VideoProjects),
-// 	{ ssr: true }
-// )
+import { SECTION_ID } from 'types';
 
 
 enum TAB {
@@ -31,9 +22,9 @@ export const Projects = () => {
 
 
 	return (
-		<section>
+		<section id={SECTION_ID.PROJECTS}>
 			<div className='container'>
-				<header className='flex flex-col items-center  mb-16 mt-20 md:mt-24 md:mb-0 lg:mt-32'>
+				<header className='flex flex-col items-center pb-16 pt-8 mt-12 md:mt-16 md:pb-0 lg:mt-20'>
 					<h1>My Projects</h1>
 					<div className='flex items-center mt-4'>
 						<button

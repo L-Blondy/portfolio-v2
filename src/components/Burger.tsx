@@ -1,16 +1,49 @@
+import css from './Burger.module.css'
+import { cn } from 'utils/cn'
 
+interface Props {
+	className?: string
+	onClick: () => void
+	isOpen: boolean
+}
 
-export const Burger = () => {
-
-
+export const Burger: React.FC<Props> = ({
+	children,
+	className = '',
+	onClick,
+	isOpen,
+}) => {
 
 	return (
-		<button className='px-1.5 py-2.5 rounded-lg bg-transparent hover:bg-gray-100 transition-colors'>
-			<div className='flex flex-col justify-between w-6 h-4'>
-				<div className='h-0.5 w-full bg-current' />
-				<div className='h-0.5 w-full bg-current' />
-				<div className='h-0.5 w-full bg-current' />
+		<>
+			<div id='burger' className={className}>
+				<button onClick={onClick} className={`${css.burger} ${isOpen ? css.open : css.close}`}>
+					<div className={`${css.wrapper} ${isOpen ? css.open : css.close}`}>
+						<div className={`${css.l1} ${isOpen ? css.open : css.close}`}></div>
+						<div className={`${css.l2} ${isOpen ? css.open : css.close}`}></div>
+						<div className={`${css.l3} ${isOpen ? css.open : css.close}`}></div>
+					</div>
+				</button>
 			</div>
-		</button>
+
+			<div
+				onClick={onClick}
+				className={cn`
+					md:hidden
+					${isOpen ? 'flex animate-fadein-xfast' : 'hidden'}
+					fixed
+					inset-0
+					flex-col
+					justify-center
+					gap-y-6
+					pb-14
+					sm:pb-24
+					text-center
+					text-2xl
+					tracking-wider
+				`}>
+				{children}
+			</div>
+		</>
 	)
 }

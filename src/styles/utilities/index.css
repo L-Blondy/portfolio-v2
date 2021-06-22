@@ -1,19 +1,6 @@
 @tailwind utilities;
 
 @layer utilities {
-	@keyframes fadeout {
-		0% {
-			opacity: 1;
-		}
-		100% {
-			opacity: 0;
-		}
-	}
-
-	.animate-fadeout {
-		animation: fadeout 1000ms forwards;
-	}
-
 	.-z-1 {
 		z-index: -1;
 	}

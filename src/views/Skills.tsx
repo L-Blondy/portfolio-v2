@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Skill } from 'components/Skill'
+import { SECTION_ID } from 'types'
 
 
 enum TAB {
@@ -14,7 +15,7 @@ export const Skills = () => {
 	return (
 		<article className='overflow-hidden'>
 			<div className='container'>
-				<header className='flex flex-col items-center mb-16 mt-20 md:mt-24 md:mb-20 lg:mt-32 lg:mb-20'>
+				<header id={SECTION_ID.SKILLS} className='flex flex-col items-center pt-8 mb-16 mt-12 md:mt-16 md:mb-20 lg:mt-24 lg:mb-20'>
 					<h1>My Skills</h1>
 					<div className='flex items-center mt-4'>
 						<button

@@ -4,8 +4,8 @@ import { postContactForm } from 'async/postContactForm'
 import { useEffect, useRef, useState } from 'react'
 import { LoadingIcon } from 'components/icons/LoadingIcon'
 import { SuccessIcon } from 'components/icons/SuccessIcon'
-import { cn } from 'utils/cn'
 import { notify } from 'utils/notify'
+import { SECTION_ID } from 'types'
 
 
 enum CONTACT_FORM_FIELD {
@@ -53,7 +53,7 @@ export const Contact = () => {
 	}
 
 	return (
-		<div className='container flex flex-col gap-7 mt-20'>
+		<div id={SECTION_ID.CONTACT} className='container flex flex-col gap-7 pt-8 mt-12'>
 			<div className='flex flex-col gap-5 text-center mb-4'>
 				<h1 className='text-primary-xdark'>Contact me</h1>
 				<p className='opacity-80 text-lg'>Feel free to reach out.<br /> I'd love to hear from you!</p>

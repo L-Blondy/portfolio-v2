@@ -17,6 +17,13 @@ module.exports = {
       },
     },
     extend: {
+      animation: {
+        'fadeout': 'fadeout 1000ms forwards',
+        'fadeout-fast': 'fadeout 300ms forwards',
+        'fadein': 'fadein 1000ms forwards',
+        'fadein-fast': 'fadein 300ms forwards',
+        'fadein-xfast': 'fadein 150ms forwards',
+      },
       colors: {
         primary: '#37AFCA',
         'primary-xdark': '#1a6575',
@@ -56,16 +63,10 @@ module.exports = {
   },
   variants: {
     extend: {
-      // outline: [ 'focus' ],
-      // opacity: [ 'disabled' ],
-      // textDecoration: [ 'disabled' ],
-      // cursor: [ 'disabled' ],
       borderRadius: [ 'focus' ],
       brightness: [ 'hover' ],
       filter: [ 'hover' ],
-      // gridColumn: [ 'responsive' ],
-      // gridColumnStart: [ 'responsive' ],
-      // gridColumnEnd: [ 'responsive' ],
+      backgroundColor: [ 'focus-visible' ],
     }
   },
   plugins: [],

@@ -4,6 +4,8 @@ export const SLIDER_INTERVAL = 5000
 
 export const VIDEO_PLAYBACK_RATE = 5
 
+export const FOOTER_BACKGROUND_COLOR = '#333f42'
+
 export const PROJECTS: ProjectConfig[] = [
 	{
 		TITLE: 'H2O.ai',

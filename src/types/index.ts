@@ -34,3 +34,16 @@ export interface MailData {
 }
 
 export type Intent = "none" | "primary" | "success" | "warning" | "danger"
+
+export enum SECTION_ID {
+	PROFILE = 'profile',
+	SKILLS = 'skills',
+	PROJECTS = 'projects',
+	RESUME = 'resume',
+	CONTACT = 'contact'
+}
+
+export enum ALIGN {
+	TOP = 'start',
+	CENTER = 'center'
+}

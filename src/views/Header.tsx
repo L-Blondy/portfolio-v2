@@ -1,10 +1,18 @@
 import { Button } from 'components/Button'
 import { HeaderImage } from 'components/HeaderImage'
 import { useEffect, useRef, useState } from 'react'
+import { ALIGN, SECTION_ID } from 'types'
+import { scrollsToSection } from 'utils/scrollsToSection'
 import css from './Header.module.css'
 
 
-export const Header = () => {
+interface Props {
+	isBurgerMenuOpen: boolean
+}
+
+export const Header = ({
+	isBurgerMenuOpen,
+}: Props) => {
 
 	const [ isHeaderLoading, setIsHeaderLoading ] = useState(true)
 	const imgRef = useRef<HTMLImageElement | null>(null)
@@ -18,7 +26,7 @@ export const Header = () => {
 			<HeaderPreloader isLoading={isHeaderLoading} />
 
 			<div className='flex items-center justify-center md:justify-end p-6 md:pr-7 lg:pr-14 xl:pr-16 md:pb-12 lg:pb-24'>
-				<div className='h-full flex flex-col justify-center'>
+				<div className={`h-full flex flex-col justify-center transition-opacity  ${isBurgerMenuOpen ? 'animate-fadeout-fast md:animate-fadein-fast' : 'animate-fadein-fast'}`}>
 					<h1 className='mb-3'>
 						Building Solid<br />
 						Data Driven<br />
@@ -32,10 +40,15 @@ export const Header = () => {
 					</h3>
 
 					<div className='flex flex-col md:flex-row-reverse md:justify-end gap-2.5 md:gap-4'>
-						<Button className='mx-auto w-full md:mx-0 md:w-auto'>
+						<Button
+							className='mx-auto w-full md:mx-0 md:w-auto'
+							onClick={scrollsToSection(SECTION_ID.PROJECTS)}>
 							JUMP TO PROJECTS
 						</Button>
-						<Button className='mx-auto w-full md:mx-0 md:w-auto' outlined>
+						<Button
+							className='mx-auto w-full md:mx-0 md:w-auto'
+							onClick={scrollsToSection(SECTION_ID.PROFILE, ALIGN.CENTER)}
+							outlined>
 							LEARN MORE
 						</Button>
 					</div>

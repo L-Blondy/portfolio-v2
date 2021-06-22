@@ -18,6 +18,7 @@
 		py-1
 		text-opacity-100
 		transition-colors
+		duration-100
 		focus:outline-none
 		focus:shadow-outline-primary
 		focus:bg-transparent

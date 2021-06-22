@@ -6,9 +6,15 @@ import { Skills } from 'views/Skills'
 import { Projects } from 'views/Projects'
 import { Resume } from 'views/Resume'
 import { Contact } from 'views/Contact'
+import { Footer } from 'views/Footer'
+import { useState } from 'react'
 
 
 export default function Home() {
+
+  const [ isBurgerMenuOpen, setIsBurgerMenuOpen ] = useState(false)
+
+
   return (
     <>
       <Head>
@@ -17,9 +23,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar />
+      <Navbar
+        onBurgerMenuClick={() => setIsBurgerMenuOpen(v => !v)}
+        isBurgerMenuOpen={isBurgerMenuOpen}
+      />
 
-      <Header />
+      <Header isBurgerMenuOpen={isBurgerMenuOpen} />
 
       <main className='main'>
         <Profile />
@@ -30,9 +39,7 @@ export default function Home() {
         <Contact />
       </main>
 
-      <footer className='bg-gray-600 mt-24 py-12 text-white'>
-        <div className='container'>asad</div>
-      </footer>
+      <Footer />
     </>
   )
 }

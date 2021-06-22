@@ -1,4 +1,5 @@
 @tailwind base;
+@import './keyframes.css';
 
 :root {
 	--clr-focus: red;
@@ -9,6 +10,8 @@
 	#__next {
 		@apply h-full text-gray-600 font-medium;
 		font-family: Raleway, sans-serif;
+		max-width: 100vw;
+		overflow: hidden;
 	}
 
 	@supports selector(A:focus-visible) {
