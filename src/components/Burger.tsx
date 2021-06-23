@@ -5,6 +5,7 @@ interface Props {
 	className?: string
 	onClick: () => void
 	isOpen: boolean
+	isPageLoaded: boolean
 }
 
 export const Burger: React.FC<Props> = ({
@@ -12,18 +13,19 @@ export const Burger: React.FC<Props> = ({
 	className = '',
 	onClick,
 	isOpen,
+	isPageLoaded,
 }) => {
 
 	return (
 		<>
 			<div id='burger' className={className}>
-				<button onClick={onClick} className={`${css.burger} ${isOpen ? css.open : css.close}`}>
+				{isPageLoaded && <button onClick={onClick} className={`${css.burger} ${isOpen ? css.open : css.close}`}>
 					<div className={`${css.wrapper} ${isOpen ? css.open : css.close}`}>
 						<div className={`${css.l1} ${isOpen ? css.open : css.close}`}></div>
 						<div className={`${css.l2} ${isOpen ? css.open : css.close}`}></div>
 						<div className={`${css.l3} ${isOpen ? css.open : css.close}`}></div>
 					</div>
-				</button>
+				</button>}
 			</div>
 
 			<div

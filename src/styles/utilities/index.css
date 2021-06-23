@@ -13,7 +13,7 @@
 		padding-top: 50%;
 	}
 
-	.await-75 {
+	/* .await-75 {
 		animation-delay: 75ms;
 	}
 
@@ -63,15 +63,15 @@
 
 	.await-1500 {
 		animation-delay: 1500ms;
-	}
+	} */
 
-	@media screen and (min-width: 768px) {
+	/* @media screen and (min-width: 768px) {
 		.md\:await-0 {
 			animation-delay: 0ms;
 		}
-	}
+	} */
 
-	.speed-75 {
+	/* .speed-75 {
 		animation-duration: 75ms;
 	}
 
@@ -125,5 +125,5 @@
 
 	.speed-3000 {
 		animation-duration: 3000ms;
-	}
+	} */
 }

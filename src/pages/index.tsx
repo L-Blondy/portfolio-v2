@@ -13,7 +13,7 @@ import { useState } from 'react'
 export default function Home() {
 
   const [ isBurgerMenuOpen, setIsBurgerMenuOpen ] = useState(false)
-
+  const [ isPageLoaded, setIsPageLoaded ] = useState(false)
 
   return (
     <>
@@ -26,9 +26,13 @@ export default function Home() {
       <Navbar
         onBurgerMenuClick={() => setIsBurgerMenuOpen(v => !v)}
         isBurgerMenuOpen={isBurgerMenuOpen}
+        isPageLoaded={isPageLoaded}
       />
 
-      <Header isBurgerMenuOpen={isBurgerMenuOpen} />
+      <Header
+        isBurgerMenuOpen={isBurgerMenuOpen}
+        onLoad={() => setIsPageLoaded(true)}
+      />
 
       <main className='main'>
         <Profile />

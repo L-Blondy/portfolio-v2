@@ -1,3 +1,4 @@
+const plugins = require('./src/styles/plugins');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
@@ -77,6 +78,7 @@ module.exports = {
         '25': '0.25',
         '80': '0.8',
         '85': '0.85',
+        '98': '0.98',
       },
     },
     screens: {
@@ -94,5 +96,8 @@ module.exports = {
       backgroundColor: [ 'focus-visible' ],
     }
   },
-  plugins: [],
+  plugins: [
+    ...plugins.utils,
+    ...plugins.variants,
+  ],
 };

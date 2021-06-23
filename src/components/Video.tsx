@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useEffect, useRef } from 'react'
+import React, { SyntheticEvent, useEffect, useRef, useState } from 'react'
 
 
 const noop = () => { }
@@ -23,6 +23,7 @@ export const Video = ({
 }: Props) => {
 
 	const ref = useRef<HTMLVideoElement | null>(null)
+	const [ isHover, setIsHover ] = useState(false)
 
 	usePlay(play, ref)
 	usePlaybackRate(playbackRate, ref)
@@ -38,7 +39,16 @@ export const Video = ({
 	}
 
 	return (
-		<video ref={ref} onPlay={handlePlay} onPause={handlePause} {...props}>
+		<video
+			ref={ref}
+			onPlay={handlePlay}
+			onPause={handlePause}
+			controls={isHover}
+			controlsList='nodownload noremoteplayback'
+			onMouseEnter={() => setIsHover(true)}
+			onMouseLeave={() => setIsHover(false)}
+			disablePictureInPicture
+			{...props}>
 			<source src={src} type={type} />
 		</video>
 	)

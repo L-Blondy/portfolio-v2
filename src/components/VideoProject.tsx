@@ -35,6 +35,8 @@ export const VideoProject = ({
 }: Props) => {
 
 	const [ device, setDevice ] = useState<DEVICE>(DEVICE.TABLET)
+	const [ wasPaused, setWasPaused ] = useState(false)
+	console.log(wasPaused, canPlay)
 
 	return (
 		<InView
@@ -48,25 +50,27 @@ export const VideoProject = ({
 				<InView rootMargin='99999px 0px 0px 0px' root={getObserverRootElement()}>
 					{({ ref, inView }) => (
 						<div ref={ref} className={cn`relative opacity-0 speed-700 ${inView && 'animate-from-left-sm'}`} style={{ margin: '35% 0' }}>
-							<Video
-								className={cn`
-									video
-									tablet
+							<div className={cn`
 									transform
 									transition-all
 									duration-1000
-									${!canPlay && '-translate-x-8 lg:-translate-x-12'}
-									${canPlay && device === DEVICE.PHONE && '-translate-x-12 opacity-0'}
-									${canPlay && device === DEVICE.TABLET && 'scale-110'}
-								`}
-								src={srcTablet}
-								type='video/mp4'
-								play={canPlay && device === DEVICE.TABLET}
-								onEnded={() => setDevice(DEVICE.PHONE)}
-								playbackRate={VIDEO_PLAYBACK_RATE}
-								controls={false}
-								muted
-							/>
+									${(wasPaused || !canPlay) && '-translate-x-8 lg:-translate-x-12'}
+									${!wasPaused && canPlay && device === DEVICE.PHONE && '-translate-x-12 opacity-0'}
+									${!wasPaused && canPlay && device === DEVICE.TABLET && 'scale-110'}
+								`}>
+								<Video
+									className='video tablet'
+									src={srcTablet}
+									type='video/mp4'
+									play={canPlay && device === DEVICE.TABLET}
+									onEnded={() => setDevice(DEVICE.PHONE)}
+									playbackRate={VIDEO_PLAYBACK_RATE}
+									onPause={() => { setWasPaused(true) }}
+									onPlay={() => { setDevice(DEVICE.TABLET); setWasPaused(false) }}
+									muted
+								/>
+							</div>
+
 							<div
 								className={`
 									absolute 
@@ -76,9 +80,9 @@ export const VideoProject = ({
 									scale-75
 									transition-all
 									duration-1000
-									${!canPlay && 'translate-x-1/3 translate-y-1/3'}
-									${canPlay && device === DEVICE.TABLET && 'translate-x-2/5 translate-y-1/3 opacity-0'}
-									${canPlay && device === DEVICE.PHONE && 'scale-90'}
+									${(wasPaused || !canPlay) && 'translate-x-1/3 translate-y-1/3'}
+									${!wasPaused && canPlay && device === DEVICE.TABLET && 'translate-x-2/5 translate-y-1/3 opacity-0 pointer-events-none'}
+									${!wasPaused && canPlay && device === DEVICE.PHONE && 'scale-90'}
 								`}>
 								<Video
 									className='video phone'
@@ -87,7 +91,8 @@ export const VideoProject = ({
 									play={canPlay && device === DEVICE.PHONE}
 									onEnded={() => setDevice(DEVICE.TABLET)}
 									playbackRate={VIDEO_PLAYBACK_RATE}
-									controls={false}
+									onPause={() => { setWasPaused(true) }}
+									onPlay={() => { setDevice(DEVICE.PHONE); setWasPaused(false) }}
 									muted
 								/>
 							</div>

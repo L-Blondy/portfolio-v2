@@ -1,31 +1,70 @@
 import { Button } from 'components/Button'
 import { HeaderImage } from 'components/HeaderImage'
+import { useUpdatedRef } from 'hooks/useUpdatedRef'
 import { useEffect, useRef, useState } from 'react'
 import { ALIGN, SECTION_ID } from 'types'
+import { cn } from 'utils/cn'
 import { scrollsToSection } from 'utils/scrollsToSection'
-import css from './Header.module.css'
 
 
 interface Props {
 	isBurgerMenuOpen: boolean
+	onLoad: () => void
 }
 
 export const Header = ({
 	isBurgerMenuOpen,
+	onLoad
 }: Props) => {
 
-	const [ isHeaderLoading, setIsHeaderLoading ] = useState(true)
+	const onLoadRef = useUpdatedRef(onLoad)
+	const [ isLoaded, setIsLoaded ] = useState(false)
 	const imgRef = useRef<HTMLImageElement | null>(null)
 
 	useEffect(() => {
-		imgRef.current?.complete && setIsHeaderLoading(false)
+		imgRef.current?.complete && setIsLoaded(true)
 	}, [ imgRef.current ])
 
-	return (
-		<header className={`grid grid-flow-row grid-rows-2 pt-28 md:pt-0 md:grid-flow-col md:grid-cols-2 md:grid-rows-none md:gap-0 lg:gap-12 xl:gap-20 ${css.header}`}>
-			<HeaderPreloader isLoading={isHeaderLoading} />
+	useEffect(() => {
+		isLoaded && onLoadRef.current()
+	}, [ isLoaded ])
 
-			<div className='flex items-center justify-center md:justify-end p-6 md:pr-7 lg:pr-14 xl:pr-16 md:pb-12 lg:pb-24'>
+	return (
+		<header
+			className={cn`
+				grid
+				grid-flow-row
+				grid-rows-2
+				pt-28
+				md:pt-0
+				md:grid-flow-col
+				md:grid-cols-2
+				md:grid-rows-none
+				md:gap-0
+				lg:gap-12
+				xl:gap-20
+				min-h-screen
+			`}>
+
+			<HeaderPreloader isLoading={!isLoaded} />
+
+			<div
+				className={`
+					flex
+					items-center
+					justify-center
+					md:justify-end
+					p-6
+					md:pr-7
+					lg:pr-14
+					xl:pr-16
+					md:pb-12
+					lg:pb-24
+					transform
+					transition-transform
+					duration-2000
+					${isLoaded ? 'scale-100' : 'scale-98'}
+				`}>
 				<div className={`h-full flex flex-col justify-center transition-opacity  ${isBurgerMenuOpen ? 'animate-fadeout-fast md:animate-fadein-fast' : 'animate-fadein-fast'}`}>
 					<h1 className='mb-3'>
 						Building Solid<br />
@@ -57,7 +96,7 @@ export const Header = ({
 			<div className='h-full w-full flex items-center py-0'>
 				<div className='relative h-full w-full md:flex md:items-center xl:-ml-4 mt-4 xs:mt-0 xl:mt-4 pb-10 md:pb-0'>
 					<HeaderImage
-						onLoad={() => setIsHeaderLoading(false)}
+						onLoad={() => setIsLoaded(true)}
 						src="/graphnew.jpg"
 						alt=""
 						style={{ maxHeight: '480px', maxWidth: '660px' }}
