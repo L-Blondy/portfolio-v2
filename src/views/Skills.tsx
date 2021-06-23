@@ -3,6 +3,7 @@ import { Skill } from 'components/Skill'
 import { SECTION_ID } from 'types'
 import { InView } from 'react-intersection-observer'
 import { cn } from 'utils/cn'
+import { SKILLS } from 'config'
 
 
 enum TAB {
@@ -62,55 +63,16 @@ export const Skills = () => {
 
 				</header>
 
-				<section className='grid grid-cols-2 gap-x-3 gap-y-16 md:grid-cols-6 md:gap-x-20 md:gap-y-20'>
-					<Skill
-						icon='/icons/typescript.svg'
-						title='Languages'
-						content='Typescript, Javascript ES5+, HTML, CSS'
-						className='md:col-span-2'
-					/>
-					<Skill
-						icon='/icons/react.svg'
-						title='Frameworks'
-						content='React.js, Next.js'
-						className={`md:col-span-2`}
-					/>
-					<Skill
-						icon='/icons/webpack.svg'
-						title='Tooling'
-						content='Webpack, Babel, Git, NPM, Yarn'
-						className='md:col-span-2'
-					/>
-					<Skill
-						icon='/icons/jest.svg'
-						title='Testing'
-						content='Jest, Testing library'
-						className={`md:col-span-2`}
-					/>
-					<Skill
-						icon='/icons/redux.svg'
-						title='State management'
-						content='Redux, Zustand'
-						className='md:col-span-2'
-					/>
-					<Skill
-						icon='/icons/axios.svg'
-						title='Async'
-						content='Axios, Swr, Websockets'
-						className={`md:col-span-2`}
-					/>
-					<Skill
-						icon='/icons/sass.svg'
-						title='Styling'
-						content='SASS, Tailwind, Bootstrap, Styled Components'
-						className='md:col-span-3 md:justify-end'
-					/>
-					<Skill
-						icon='/icons/figma.svg'
-						title='Design'
-						content='Figma'
-						className={`md:col-span-3 md:justify-start`}
-					/>
+				<section className='flex flex-wrap justify-center gap-y-12 sm:gap-y-14 md:gap-y-16'>
+					{SKILLS.map(SKILL => (
+						<Skill
+							icon={SKILL.ICON}
+							title={SKILL.TITLE}
+							content={SKILL.CONTENT}
+							className='w-1/2 md:w-1/3 px-4 xs:px-2 sm:px-6 md:px-4 lg:px-8'
+							key={`skill-${activeTab}-${SKILL.TITLE}`}
+						/>
+					))}
 				</section>
 			</div>
 		</article>

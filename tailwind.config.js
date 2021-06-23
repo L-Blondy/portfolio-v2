@@ -53,11 +53,6 @@ module.exports = {
         '1/2': '50%',
         '3/4': '75%',
       },
-      screens: {
-        '2xs': '400px',
-        'xs': '500px',
-        ...defaultTheme.screens,
-      },
       translate: {
         '2/5': '40%',
       },
@@ -70,7 +65,13 @@ module.exports = {
         '85': '0.85',
       },
     },
+    screens: {
+      '2xs': '400px',
+      'xs': '500px',
+      ...defaultTheme.screens,
+    },
   },
+
   variants: {
     extend: {
       borderRadius: [ 'focus' ],

@@ -47,3 +47,9 @@ export enum ALIGN {
 	TOP = 'start',
 	CENTER = 'center'
 }
+
+export interface SkillConfig {
+	ICON: string
+	TITLE: string
+	CONTENT: string
+}
