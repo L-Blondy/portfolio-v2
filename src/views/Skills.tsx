@@ -64,14 +64,30 @@ export const Skills = () => {
 				</header>
 
 				<section className='flex flex-wrap justify-center gap-y-12 sm:gap-y-14 md:gap-y-16'>
-					{SKILLS.map(SKILL => (
-						<Skill
-							icon={SKILL.ICON}
-							title={SKILL.TITLE}
-							content={SKILL.CONTENT}
-							className='w-1/2 md:w-1/3 px-4 xs:px-2 sm:px-6 md:px-4 lg:px-8'
-							key={`skill-${activeTab}-${SKILL.TITLE}`}
-						/>
+					{SKILLS.map((SKILL, i) => (
+						<InView triggerOnce key={`skill-${activeTab}-${SKILL.TITLE}`}>
+							{({ ref, inView }) => (
+								<Skill
+									icon={SKILL.ICON}
+									title={SKILL.TITLE}
+									content={SKILL.CONTENT}
+									className={cn`
+										w-1/2 md:w-1/3 px-4 xs:px-2 sm:px-6 md:px-4 lg:px-8
+										opacity-0
+										${inView && `
+											${i % 2 === 0 && 'animate-from-left'}
+											${i % 2 === 1 && 'animate-from-right'}
+											${i + SKILLS.length % 2 >= SKILLS.length && 'animate-from-bottom'}
+											${i % 3 === 0 && 'md:animate-from-left'}
+											${i % 3 === 1 && 'md:animate-from-bottom'}
+											${i % 3 === 2 && 'md:animate-from-right'}
+											${i + SKILLS.length % 3 >= SKILLS.length && 'md:animate-from-bottom'}
+										`}
+									`}
+									ref={ref}
+								/>
+							)}
+						</InView>
 					))}
 				</section>
 			</div>

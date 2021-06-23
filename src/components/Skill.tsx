@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { forwardRef } from 'react'
 
 
 interface SkillProps {
@@ -8,15 +9,15 @@ interface SkillProps {
 	className: string
 }
 
-export function Skill({
+export const Skill = forwardRef<HTMLDivElement, SkillProps>(({
 	icon,
 	title,
 	content,
 	className
-}: SkillProps) {
+}, ref) => {
 
 	return (
-		<div className={`flex justify-center ${className}`}>
+		<div ref={ref} className={`flex justify-center ${className}`}>
 			<div className='inline-flex flex-col text-center w-52'>
 				<Image src={icon} height={48} width={48} loading='eager' />
 				<h2 className='text-xl mt-3.5 mb-1.5 text-gray-700'>{title}</h2>
@@ -24,4 +25,4 @@ export function Skill({
 			</div>
 		</div>
 	)
-}
+})
