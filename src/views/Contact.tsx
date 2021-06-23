@@ -6,6 +6,8 @@ import { LoadingIcon } from 'components/icons/LoadingIcon'
 import { SuccessIcon } from 'components/icons/SuccessIcon'
 import { notify } from 'utils/notify'
 import { SECTION_ID } from 'types'
+import { InView } from 'react-intersection-observer'
+import { cn } from 'utils/cn'
 
 
 enum CONTACT_FORM_FIELD {
@@ -16,6 +18,92 @@ enum CONTACT_FORM_FIELD {
 
 export const Contact = () => {
 
+	const { formRef, isSubmitting, sentWithSuccess, handleSubmit } = useContactForm()
+
+	return (
+		<div id={SECTION_ID.CONTACT} className='container flex flex-col gap-7 pt-8 mt-12'>
+			<InView>
+				{({ ref, inView }) => (
+					<div ref={ref} className='flex flex-col gap-5 text-center mb-4'>
+						<h1 className={cn`text-primary-xdark opacity-0 ${inView && 'animate-scalein'}`}>Contact me</h1>
+						<div className='text-lg opacity-80'>
+							<p className={cn`opacity-0 await-150 ${inView && 'animate-from-right-sm'}`}>Feel free to reach out.</p>
+							<p className={cn`opacity-0 await-150 ${inView && 'animate-from-left-sm'}`}>I'd love to hear from you!</p>
+						</div>
+					</div>
+				)}
+			</InView>
+
+			<InView>
+				{({ ref, inView }) => (
+					<div ref={ref} className=''>
+						<form ref={formRef} className='flex flex-col self-center gap-6 mx-auto md:grid md:grid-cols-2 lg:mt-1 w-full max-w-lg text-md md:text-lg' onSubmit={handleSubmit}>
+							<div className={`${css.container} w-0 transition-all overflow-hidden ${inView && 'w-full duration-500 delay-150'}`}>
+								<label className={css.label} htmlFor={CONTACT_FORM_FIELD.EMAIL} />
+								<input
+									className={css.field}
+									type='email'
+									name={CONTACT_FORM_FIELD.EMAIL}
+									id={CONTACT_FORM_FIELD.EMAIL}
+									placeholder='Enter your email'
+									maxLength={100}
+									required
+								/>
+							</div>
+
+							<div className={`${css.container} w-0 transition-all overflow-hidden ${inView && 'w-full duration-500 delay-400 '}`}>
+								<label className={css.label} htmlFor={CONTACT_FORM_FIELD.FULLNAME} />
+								<input
+									className={css.field}
+									type='text'
+									name={CONTACT_FORM_FIELD.FULLNAME}
+									id={CONTACT_FORM_FIELD.FULLNAME}
+									placeholder='Enter your name'
+									minLength={3}
+									maxLength={60}
+									required
+								/>
+							</div>
+
+							<div
+								className={`
+								md:col-span-2
+								${css.container} 
+								transition-all
+								transform
+								origin-top
+								${inView ? 'scale-y-1 duration-500 delay-700' : 'scale-y-0'}
+							`}>
+								<label className={css.label} htmlFor={CONTACT_FORM_FIELD.MESSAGE} />
+								<textarea
+									className={`${css.field} ${inView && css.inView}`}
+									name={CONTACT_FORM_FIELD.MESSAGE}
+									id={CONTACT_FORM_FIELD.MESSAGE}
+									rows={10}
+									placeholder='Your message here'
+									minLength={20}
+									maxLength={1000}
+									required
+								/>
+							</div>
+							<div className={`flex items-center justify-center md:col-span-2 leading-6 opacity-0 await-1100 ${inView && 'animate-from-bottom-sm'}`}>
+								<Button className='mt-2' style={{ minWidth: '10rem' }} disabled={isSubmitting}>
+									SEND MESSAGE
+									{isSubmitting
+										? <LoadingIcon className='ml-0.5' width={18} strokeWidth={6} />
+										: sentWithSuccess ? <SuccessIcon className='mx-0.5' /> : null
+									}
+								</Button>
+							</div>
+						</form>
+					</div>
+				)}
+			</InView>
+		</div >
+	)
+}
+
+function useContactForm() {
 	const formRef = useRef<HTMLFormElement | null>(null)
 	const [ isSubmitting, setIsSubmitting ] = useState(false)
 	const [ sentWithSuccess, setSentWithSuccess ] = useState(false)
@@ -52,62 +140,5 @@ export const Contact = () => {
 			})
 	}
 
-	return (
-		<div id={SECTION_ID.CONTACT} className='container flex flex-col gap-7 pt-8 mt-12'>
-			<div className='flex flex-col gap-5 text-center mb-4'>
-				<h1 className='text-primary-xdark'>Contact me</h1>
-				<p className='opacity-80 text-lg'>Feel free to reach out.<br /> I'd love to hear from you!</p>
-			</div>
-
-			<form ref={formRef} className='flex flex-col gap-6 md:grid md:grid-cols-2 lg:mt-1 self-center w-full max-w-lg' style={{ fontSize: '17px' }} onSubmit={handleSubmit}>
-				<div className={css.container}>
-					<label className={css.label} htmlFor={CONTACT_FORM_FIELD.EMAIL} />
-
-					<input
-						className={css.field}
-						type='email'
-						name={CONTACT_FORM_FIELD.EMAIL}
-						id={CONTACT_FORM_FIELD.EMAIL}
-						placeholder='Enter your email'
-						maxLength={100}
-						required
-					/>
-				</div>
-
-				<div className={css.container}>
-					<label className={css.label} htmlFor={CONTACT_FORM_FIELD.FULLNAME} />
-					<input
-						className={css.field}
-						type='text'
-						name={CONTACT_FORM_FIELD.FULLNAME}
-						id={CONTACT_FORM_FIELD.FULLNAME}
-						placeholder='Enter your name'
-						minLength={3}
-						maxLength={60}
-						required
-					/>
-				</div>
-
-				<div className={`md:col-span-2 ${css.container}`}>
-					<label className={css.label} htmlFor={CONTACT_FORM_FIELD.MESSAGE} />
-
-					<textarea
-						className={css.field}
-						name={CONTACT_FORM_FIELD.MESSAGE}
-						id={CONTACT_FORM_FIELD.MESSAGE}
-						rows={10}
-						placeholder='Your message here'
-						minLength={20}
-						maxLength={1000}
-						required
-					/>
-				</div>
-				<div className='flex items-center justify-center md:col-span-2'>
-					<Button className='w-40 mt-2' disabled={isSubmitting}>
-						SEND MESSAGE {isSubmitting ? <LoadingIcon className='ml-0.5' width={18} strokeWidth={6} /> : sentWithSuccess ? <SuccessIcon className='mx-0.5' /> : ''}
-					</Button>
-				</div>
-			</form>
-		</div>
-	)
+	return { formRef, isSubmitting, sentWithSuccess, handleSubmit }
 }

@@ -45,6 +45,9 @@ module.exports = {
       padding: {
         '1.75': '0.4375rem'
       },
+      fontSize: {
+        'md': '1.0625rem'
+      },
       opacity: {
         '15': '0.15',
         '85': '0.85',
@@ -64,6 +67,7 @@ module.exports = {
         '3000': '3000ms',
       },
       transitionDelay: {
+        '400': '400ms',
         '2000': '2000ms',
         '2500': '2500ms',
         '3000': '3000ms',

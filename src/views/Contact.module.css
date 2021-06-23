@@ -36,3 +36,13 @@
 .field[name='message'] {
 	@apply py-2 rounded mt-4;
 }
+
+.field[name='message']::placeholder {
+	@apply transition-all w-0 overflow-hidden whitespace-nowrap min-w-0;
+}
+
+.field[name='message'].inView::placeholder {
+	@apply w-52;
+	transition-delay: 1200ms;
+	transition-duration: 1800ms;
+}

@@ -32,11 +32,7 @@ export const SectionHeaderWithTabs = ({
 		<header id={id} className={className}>
 			<h1
 				ref={ref}
-				className={cn`
-					transform
-					transition-all
-					${inView ? 'opacity-100 scale-100 duration-1000' : 'opacity-0 scale-90'}
-				`}>
+				className={cn`opacity-0 ${inView && 'animate-scalein'}`}>
 				{title}
 			</h1>
 

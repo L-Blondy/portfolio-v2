@@ -35,15 +35,20 @@ export const ImageProject = ({
 									width={600}
 									height={300}
 									canPlay={inView1}
-									className={cn`opacity-0 ${inView2 && 'animate-from-right'}`}
+									className={cn`opacity-0 ${inView2 && 'animate-from-right-sm'}`}
 								/>
 							</div>
 
 							<div className='flex flex-col gap-4 mt-4'>
-								<h2 className={cn`text-3xl opacity-0 ${inView2 && 'animate-from-right'} await-150`}>{title}</h2>
-								<div className={cn`opacity-0 ${inView2 && 'animate-from-right'} await-300`}>
-									<p className='opacity-85'>{description}</p></div>
-								<div className={cn`flex gap-3 py-1.5 opacity-0 ${inView2 && 'animate-from-right'} await-500`}>
+								<h2 className={cn`text-3xl opacity-0 ${inView2 && 'animate-from-right-sm'} await-150`}>
+									{title}
+								</h2>
+
+								<div className={cn`opacity-0 ${inView2 && 'animate-from-right-sm'} await-300`}>
+									<p className='opacity-85'>{description}</p>
+								</div>
+
+								<div className={cn`flex gap-3 py-1.5 opacity-0 ${inView2 && 'animate-from-right-sm'} await-500`}>
 									<Link href={projectUrl}>
 										<a target='_blank' rel='noopener noreferrer'>
 											<Button>

@@ -41,13 +41,13 @@ export const Skills = () => {
 										w-1/2 md:w-1/3 px-4 xs:px-2 sm:px-6 md:px-4 lg:px-8
 										opacity-0
 										${inView && `
-											${i % 2 === 0 && 'animate-from-left'}
-											${i % 2 === 1 && 'animate-from-right'}
-											${i + SKILLS.length % 2 >= SKILLS.length && 'animate-from-bottom'}
-											${i % 3 === 0 && 'md:animate-from-left'}
-											${i % 3 === 1 && 'md:animate-from-bottom'}
-											${i % 3 === 2 && 'md:animate-from-right'}
-											${i + SKILLS.length % 3 >= SKILLS.length && 'md:animate-from-bottom'}
+											${i % 2 === 0 && 'animate-from-left-sm'}
+											${i % 2 === 1 && 'animate-from-right-sm'}
+											${i + SKILLS.length % 2 >= SKILLS.length && 'animate-from-bottom-sm'}
+											${i % 3 === 0 && 'md:animate-from-left-sm'}
+											${i % 3 === 1 && 'md:animate-from-bottom-sm'}
+											${i % 3 === 2 && 'md:animate-from-right-sm'}
+											${i + SKILLS.length % 3 >= SKILLS.length && 'md:animate-from-bottom-sm'}
 										`}
 									`}
 									ref={ref}
