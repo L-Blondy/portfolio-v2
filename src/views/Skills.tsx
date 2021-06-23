@@ -5,6 +5,8 @@ import { InView } from 'react-intersection-observer'
 import { cn } from 'utils/cn'
 import { SKILLS } from 'config'
 import { SECTION_ID } from 'types'
+import { getObserverRootElement } from 'utils/getObserverRootElement'
+import { useWindowWidth } from '@react-hook/window-size';
 
 
 enum TAB {
@@ -15,9 +17,10 @@ enum TAB {
 export const Skills = () => {
 
 	const [ activeTab, setActiveTab ] = useState<TAB>(TAB.FRONTEND)
+	const windowWidth = useWindowWidth()
 
 	return (
-		<article className='overflow-hidden'>
+		<article className='overflow-hidden pb-10'>
 			<div className='container'>
 
 				<SectionHeaderWithTabs
@@ -31,7 +34,7 @@ export const Skills = () => {
 
 				<section className='flex flex-wrap justify-center gap-y-12 sm:gap-y-14 md:gap-y-16'>
 					{SKILLS.map((SKILL, i) => (
-						<InView triggerOnce key={`skill-${activeTab}-${SKILL.TITLE}`}>
+						<InView key={`skill-${activeTab}-${SKILL.TITLE}`} rootMargin={`${windowWidth > 768 ? '99999px' : '0px'} 0px 0px 0px`} root={getObserverRootElement()}>
 							{({ ref, inView }) => (
 								<Skill
 									icon={SKILL.ICON}

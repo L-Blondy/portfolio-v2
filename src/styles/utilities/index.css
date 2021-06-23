@@ -65,6 +65,12 @@
 		animation-delay: 1500ms;
 	}
 
+	@media screen and (min-width: 768px) {
+		.md\:await-0 {
+			animation-delay: 0ms;
+		}
+	}
+
 	.speed-75 {
 		animation-duration: 75ms;
 	}

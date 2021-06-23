@@ -33,7 +33,7 @@ export default function Home() {
       <main className='main'>
         <Profile />
         <Skills />
-        <div className='divider mt-20 md:mt-24 lg:mt-28' />
+        <div className='divider mt-10 md:mt-14 lg:mt-18' />
         <Projects />
         <Resume />
         <Contact />
