@@ -2,8 +2,9 @@ import 'react-typist/dist/Typist.css';
 import Typist, { TypistProps } from 'react-typist';
 import { ReactChild, ReactChildren } from 'react';
 import { cn } from 'utils/cn';
+import { useIsMountedState } from 'hooks/useIsMountedState';
 
-const defaultCursorSettings = { hideWhenDone: true, hideWhenDoneDelay: 3500 }
+const defaultCursorSettings = { hideWhenDone: true, hideWhenDoneDelay: 3300 }
 
 interface Props extends TypistProps {
 	disabled?: boolean
@@ -18,10 +19,11 @@ export const TypeWriter = ({
 	...props
 }: Props) => {
 
+	const isMounted = useIsMountedState()
 	className = cn`${disabled && 'invisible'} ${className}`
 	cursor = { ...defaultCursorSettings, ...cursor }
 
-	if (disabled)
+	if (disabled || !isMounted)
 		return (
 			<div className={className}>
 				{children}

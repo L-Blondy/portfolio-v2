@@ -43,7 +43,7 @@ export const Profile = () => {
 							{({ ref, inView }) => (
 								<button
 									ref={ref}
-									className={`link text-primary self-start leading-9 pr-4 opacity-0 speed-700 ${inView && 'animate-from-right await-500'}`}
+									className={cn`link text-primary self-start leading-9 pr-4`}
 									onClick={scrollsToSection(SECTION_ID.CONTACT)}>
 									<TypeWriter startDelay={350} avgTypingDelay={70} disabled={!inView || !isTitleTyped}>
 										Let’s have a chat.

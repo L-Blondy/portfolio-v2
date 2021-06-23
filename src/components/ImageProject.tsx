@@ -40,10 +40,10 @@ export const ImageProject = ({
 							</div>
 
 							<div className='flex flex-col gap-4 mt-4'>
-								<h2 className={`text-3xl opacity-0 ${inView2 && 'animate-from-right'} await-150`}>{title}</h2>
-								<div className={`opacity-0 ${inView2 && 'animate-from-right'} await-300`}>
+								<h2 className={cn`text-3xl opacity-0 ${inView2 && 'animate-from-right'} await-150`}>{title}</h2>
+								<div className={cn`opacity-0 ${inView2 && 'animate-from-right'} await-300`}>
 									<p className='opacity-85'>{description}</p></div>
-								<div className={`flex gap-3 py-1.5 opacity-0 ${inView2 && 'animate-from-right'} await-500`}>
+								<div className={cn`flex gap-3 py-1.5 opacity-0 ${inView2 && 'animate-from-right'} await-500`}>
 									<Link href={projectUrl}>
 										<a target='_blank' rel='noopener noreferrer'>
 											<Button>

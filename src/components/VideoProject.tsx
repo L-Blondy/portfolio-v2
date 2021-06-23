@@ -43,7 +43,7 @@ export const VideoProject = ({
 			onChange={(_, e) => e && onObserverEntry(e)}>
 			<div className='grid grid-cols-2 gap-24 lg:gap-32 place-items-center'>
 
-				<div className={cn`relative`} style={{ margin: '41% 0' }}>
+				<div className={cn`relative`} style={{ margin: '35% 0' }}>
 					<Video
 						className={cn`
 						video

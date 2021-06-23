@@ -23,7 +23,7 @@ export const Projects = () => {
 
 
 	return (
-		<section id={SECTION_ID.PROJECTS}>
+		<section id={SECTION_ID.PROJECTS} className='overflow-hidden'>
 			<div className='container'>
 				<header className='flex flex-col items-center pb-16 pt-8 mt-12 md:mt-16 md:pb-0 lg:mt-20'>
 					<InView>

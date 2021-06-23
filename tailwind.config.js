@@ -23,6 +23,7 @@ module.exports = {
         'fadein': 'fadein 1000ms forwards',
         'fadein-fast': 'fadein 300ms forwards',
         'fadein-xfast': 'fadein 150ms forwards',
+        'scalein': 'scalein 1000ms forwards',
         'scalein-fast': 'scalein 150ms forwards',
         'scalein-full': 'scalein-full 1000ms forwards',
         'from-left': 'from-left 1000ms forwards',
@@ -58,9 +59,17 @@ module.exports = {
       },
       transitionDuration: {
         '2000': '2000ms',
+        '2500': '2500ms',
+        '3000': '3000ms',
+      },
+      transitionDelay: {
+        '2000': '2000ms',
+        '2500': '2500ms',
         '3000': '3000ms',
       },
       scale: {
+        '10': '0.1',
+        '25': '0.25',
         '80': '0.8',
         '85': '0.85',
       },
