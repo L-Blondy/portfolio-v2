@@ -2,20 +2,15 @@ import { Button } from 'components/Button'
 import { SECTION_ID } from 'types'
 import { ResumeLink } from 'components/ResumeLink'
 import { TypeWriter } from 'components/TypeWriter'
-import { InView, useInView } from 'react-intersection-observer'
+import { useInView } from 'react-intersection-observer'
 import { cn } from 'utils/cn'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 
 export const Resume = () => {
 
 	const [ isDoneWriting, setIsDoneWriting ] = useState(false)
-	const [ hasButtonStartedGrowing, setHasButtonStartedGrowing ] = useState(false)
 	const { ref, inView } = useInView({ triggerOnce: true })
-
-	useEffect(() => {
-		inView && setTimeout(() => setHasButtonStartedGrowing(true), 2500)
-	}, [ inView ])
 
 	return (
 		<section ref={ref} id={SECTION_ID.RESUME} className='mt-24 py-14 md:py-20 bg-primary-xdark text-white text-center md:text-left overflow-hidden'>
@@ -30,8 +25,8 @@ export const Resume = () => {
 						</TypeWriter>
 					</div>
 				</div>
-				<div className={cn`self-center relative mt-1.5 z-10 opacity-50 transform scale-25 transition-all duration-2000 delay-2500 ease-in-out ${inView && 'scale-100 opacity-100'}`}>
-					<ResumeLink className={`transition-opacity duration-300 ${!hasButtonStartedGrowing && 'animate-pulse'}`}>
+				<div className={cn`self-center opacity-0 ${inView && 'animate-from-bottom md:animate-from-right'}`}>
+					<ResumeLink className={``}>
 						<Button
 							className='pl-5 pr-5 leading-6 text-white text-opacity-85 md:w-40'
 							style={{ backgroundColor: '#4fd6ff61', borderColor: 'transparent', fontSize: '18px', paddingBottom: '0.5rem' }}>
