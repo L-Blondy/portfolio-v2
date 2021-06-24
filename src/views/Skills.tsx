@@ -26,7 +26,7 @@ export const Skills = () => {
 				<SectionHeaderWithTabs
 					title='My Skills'
 					id={SECTION_ID.SKILLS}
-					className='flex flex-col items-center pt-8 mb-16 mt-12 md:mt-16 md:mb-20 lg:mt-24 lg:mb-20'
+					className='pt-8 mb-16 mt-12 md:mt-16 md:mb-20 lg:mt-24 lg:mb-20'
 					disableBE={true}
 					onTabChange={setActiveTab}
 					tab={activeTab}

@@ -25,22 +25,21 @@ export const SectionHeaderWithTabs = ({
 	tab,
 }: Props) => {
 
-	const { ref, inView } = useInView()
+	const { ref, inView } = useInView({})
 
 
 	return (
 		<header id={id} className={className}>
-			<h2
-				ref={ref}
-				className={cn`h1 opacity-0 ${inView && 'animate-scalein'}`}>
-				{title}
-			</h2>
+			<div ref={ref} className='flex flex-col items-center'>
+				<h2 className={cn`h1 opacity-0 ${inView && 'animate-scalein'}`}>
+					{title}
+				</h2>
 
-			<div className='flex items-center mt-4'>
-				<div className=''>
-					<button
-						onClick={() => onTabChange(TAB.FRONTEND)}
-						className={cn`
+				<div className='flex items-center mt-4'>
+					<div className=''>
+						<button
+							onClick={() => onTabChange(TAB.FRONTEND)}
+							className={cn`
 							link
 							px-3
 							py-1
@@ -50,12 +49,12 @@ export const SectionHeaderWithTabs = ({
 							${tab === TAB.FRONTEND ? 'active font-semibold' : 'font-medium'} 
 							${inView && 'animate-from-left-sm'} 
 						`}>
-						Frontend
-					</button>
-				</div>
+							Frontend
+						</button>
+					</div>
 
-				<div
-					className={cn`
+					<div
+						className={cn`
 						w-px
 						h-5
 						bg-current
@@ -64,14 +63,14 @@ export const SectionHeaderWithTabs = ({
 						scale-0
 						${inView && 'animate-scalein-full'} await-500
 					`}
-				/>
+					/>
 
-				<div className={disableBE ? 'opacity-60' : ''}>
-					<button
-						onClick={() => onTabChange(TAB.BACKEND)}
-						disabled={disableBE}
-						style={{ opacity: 0 }}
-						className={cn`
+					<div className={disableBE ? 'opacity-60' : ''}>
+						<button
+							onClick={() => onTabChange(TAB.BACKEND)}
+							disabled={disableBE}
+							style={{ opacity: 0 }}
+							className={cn`
 							link
 							px-3
 							py-1
@@ -81,8 +80,9 @@ export const SectionHeaderWithTabs = ({
 							${tab === TAB.BACKEND ? 'active font-semibold' : 'font-medium'} 
 							${inView && 'animate-from-right-sm'} 
 						`}>
-						Backend
-					</button>
+							Backend
+						</button>
+					</div>
 				</div>
 			</div>
 		</header>
