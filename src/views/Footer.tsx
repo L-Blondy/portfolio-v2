@@ -50,8 +50,9 @@ export const Footer = () => {
 								className={cn`rounded-full opacity-0 await-400 md:await-0 speed-1500 origin-right md:origin-center ${inView && 'animate-scalein'}`}
 								hrefLang='en'
 								rel='noopener noreferrer'
+								aria-label='Go to Linkedin profile'
 								target='_blank'>
-								<span className='absolute invisible pointer-events-none'>Linkedin</span>
+								<span className='absolute invisible pointer-events-none'>Go to Linkedin profile</span>
 								<LinkedinIcon
 									className={cn`${inView && 'animate-scalein'}`}
 									fill='currentColor'
@@ -65,8 +66,9 @@ export const Footer = () => {
 								className={cn`rounded-full opacity-0 await-400 md:await-0 speed-1500 origin-left md:origin-center ${inView && 'animate-scalein'}`}
 								hrefLang='en'
 								rel='noopener noreferrer'
+								aria-label='Go to Github profile'
 								target='_blank'>
-								<span className='absolute invisible pointer-events-none'>Github</span>
+								<span className='absolute invisible pointer-events-none'>Go to Github profile</span>
 								<GithubIcon width={36} fill='currentColor' />
 							</a>
 						</Link>

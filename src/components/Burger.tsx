@@ -19,7 +19,7 @@ export const Burger: React.FC<Props> = ({
 	return (
 		<>
 			<div id='burger' className={className}>
-				{isPageLoaded && <button onClick={onClick} className={`${css.burger} ${isOpen ? css.open : css.close}`}>
+				{isPageLoaded && <button onClick={onClick} aria-label='Menu' className={`${css.burger} ${isOpen ? css.open : css.close}`}>
 					<div className={`${css.wrapper} ${isOpen ? css.open : css.close}`}>
 						<div className={`${css.l1} ${isOpen ? css.open : css.close}`}></div>
 						<div className={`${css.l2} ${isOpen ? css.open : css.close}`}></div>
