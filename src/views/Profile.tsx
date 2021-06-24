@@ -44,6 +44,7 @@ export const Profile = () => {
 								<button
 									ref={ref}
 									className={cn`link text-primary self-start leading-9 pr-4`}
+									aria-label="Let's have a chat."
 									onClick={scrollsToSection(SECTION_ID.CONTACT)}>
 									<TypeWriter startDelay={350} avgTypingDelay={70} disabled={!inView || !isTitleTyped}>
 										Let’s have a chat.
