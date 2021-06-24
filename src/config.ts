@@ -121,9 +121,9 @@ export const META = {
 			alt: 'Laurent Blondy | Frontend Software Developer',
 		},
 		TAGS: [
+			'Laurent Blondy',
 			'Laurent',
 			'Blondy',
-			'Laurent Blondy',
 			'Web dev',
 			'Frontend web dev',
 			'Frontend web dev portfolio',
