@@ -27,12 +27,12 @@ export const Footer = () => {
 
 
 	return (
-		<footer className='mt-24 pt-12 pb-16 text-white md:pt-8 md:pb-12 overflow-hidden' style={{ background: FOOTER_BACKGROUND_COLOR }}>
+		<footer className='pt-12 pb-16 text-white md:pt-8 md:pb-12 overflow-hidden' style={{ background: FOOTER_BACKGROUND_COLOR }}>
 			<div className='container'>
 				<div className='flex flex-col gap-6 md:gap-4 lg:gap-6 md:flex-row md:justify-between'>
 					<h2 ref={ref} className='h1 flex items-center justify-center gap-3 md:justify-start md:order-1'>
 						<div className={cn`text-primary filter brightness-110 ${isDoneTyping1 && ''}`}>
-							<div className={cn`md:invisible ${inView && 'animate-from-left-sm md:animate-none'}`}>
+							<div className={cn`md:invisible opacity-0 ${inView && 'animate-from-left-sm md:animate-none'}`}>
 								Laurent
 							</div>
 							<TypeWriter className='absolute inset-0 hidden md:block' disabled={!inView} startDelay={150} cursor={{ show: false }} onTypingDone={() => inView && setIsDoneTyping1(true)}>

@@ -4,13 +4,17 @@ import { ResumeLink } from 'components/ResumeLink'
 import { TypeWriter } from 'components/TypeWriter'
 import { useInView } from 'react-intersection-observer'
 import { cn } from 'utils/cn'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 
 export const Resume = () => {
 
 	const [ isDoneWriting, setIsDoneWriting ] = useState(false)
-	const { ref, inView } = useInView({ triggerOnce: true })
+	const { ref, inView } = useInView({ triggerOnce: false })
+
+	useEffect(() => {
+		!inView && setIsDoneWriting(false)
+	}, [ inView ])
 
 	return (
 		<section ref={ref} id={SECTION_ID.RESUME} className='mt-24 py-14 md:py-20 bg-primary-xdark text-white text-center md:text-left overflow-hidden'>
