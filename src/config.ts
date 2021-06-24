@@ -37,8 +37,8 @@ export const PROJECTS: ProjectConfig[] = [
 		},
 		IMAGES: [ '/images/tina_1.jpg', '/images/tina_2.jpg', '/images/tina_3.jpg' ]
 	}, {
-		TITLE: 'AccuWeather',
-		DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+		TITLE: 'ClearWeather',
+		DESCRIPTION: 'A simple serverless web app built with React.js and Algolia search to quickly check the weather worldwide. Users type the search term and are offered a 16 days detailed weather forecast for the submitted location.',
 		URL: {
 			PROJECT: 'https://l-blondy.github.io/weather/',
 			GITHUB: 'https://github.com/L-Blondy/weather',
