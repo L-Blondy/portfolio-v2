@@ -14,7 +14,10 @@ export const HEADER = {
 export const PROJECTS: ProjectConfig[] = [
 	{
 		TITLE: 'H2O.ai',
-		DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+		DESCRIPTION: `
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+		`,
 		URL: {
 			PROJECT: 'https://l-blondy.github.io/H2O/',
 			GITHUB: 'https://github.com/L-Blondy/H2O',
@@ -26,7 +29,10 @@ export const PROJECTS: ProjectConfig[] = [
 		IMAGES: [ '/images/H2O_1.jpg', '/images/H2O_2.jpg', '/images/H2O_3.jpg' ]
 	}, {
 		TITLE: 'Tina Ponticelli',
-		DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+		DESCRIPTION: `
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+		`,
 		URL: {
 			PROJECT: 'https://l-blondy.github.io/Tina-Ponticelli/',
 			GITHUB: 'https://github.com/L-Blondy/Tina-Ponticelli',
