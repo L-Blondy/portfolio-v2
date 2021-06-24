@@ -27,7 +27,7 @@ export const Footer = () => {
 
 
 	return (
-		<footer className='mt-24 pt-12 pb-16 text-white md:pt-8 md:pb-12' style={{ background: FOOTER_BACKGROUND_COLOR }}>
+		<footer className='mt-24 pt-12 pb-16 text-white md:pt-8 md:pb-12 overflow-hidden' style={{ background: FOOTER_BACKGROUND_COLOR }}>
 			<div className='container'>
 				<div className='flex flex-col gap-6 md:gap-4 lg:gap-6 md:flex-row md:justify-between'>
 					<h1 ref={ref} className='flex items-center justify-center gap-3 md:justify-start md:order-1'>
