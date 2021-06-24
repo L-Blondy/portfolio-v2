@@ -50,14 +50,14 @@ export const ImageProject = ({
 
 								<div className={cn`flex gap-3 py-1.5 opacity-0 ${inView2 && 'animate-from-right-sm'} await-400 speed-500`}>
 									<Link href={projectUrl}>
-										<a target='_blank' rel='noopener noreferrer'>
+										<a target='_blank' hrefLang='en' rel='noopener noreferrer'>
 											<Button>
 												VISIT WEBSITE
 											</Button>
 										</a>
 									</Link>
 									<Link href={githubUrl}>
-										<a target='_blank' rel='noopener noreferrer'>
+										<a target='_blank' hrefLang='en' rel='noopener noreferrer'>
 											<Button className='w-32' outlined>
 												GITHUB
 												<GithubIcon className='pb-px' />

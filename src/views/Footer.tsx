@@ -46,7 +46,11 @@ export const Footer = () => {
 
 					<div className='flex-center gap-6 md:row-span-2 md:justify-end md:order-3 md:-mb-1' style={{ color: '#d5e3e6' }}>
 						<Link href='https://it.linkedin.com/in/laurent-blondy-72b364172'>
-							<a className={cn`rounded-full opacity-0 await-400 md:await-0 speed-1500 origin-right md:origin-center ${inView && 'animate-scalein'}`} rel='noopener noreferrer' target='_blank'>
+							<a
+								className={cn`rounded-full opacity-0 await-400 md:await-0 speed-1500 origin-right md:origin-center ${inView && 'animate-scalein'}`}
+								hrefLang='en'
+								rel='noopener noreferrer'
+								target='_blank'>
 								<LinkedinIcon
 									className={cn`${inView && 'animate-scalein'}`}
 									fill='currentColor'
@@ -56,7 +60,11 @@ export const Footer = () => {
 							</a>
 						</Link>
 						<Link href='https://github.com/L-Blondy'>
-							<a className={cn`rounded-full opacity-0 await-400 md:await-0 speed-1500 origin-left md:origin-center ${inView && 'animate-scalein'}`} rel='noopener noreferrer' target='_blank'>
+							<a
+								className={cn`rounded-full opacity-0 await-400 md:await-0 speed-1500 origin-left md:origin-center ${inView && 'animate-scalein'}`}
+								hrefLang='en'
+								rel='noopener noreferrer'
+								target='_blank'>
 								<GithubIcon width={36} fill='currentColor' />
 							</a>
 						</Link>

@@ -105,14 +105,14 @@ export const VideoProject = ({
 							<p className={cn`opacity-0 await-100 speed-500 ${inView && 'animate-from-right-sm'}`}>{description}</p>
 							<div className='flex gap-3 py-1'>
 								<Link href={projectUrl}>
-									<a className={cn`opacity-0 await-200 speed-500 ${inView && 'animate-from-right-sm'}`} target='_blank' rel='noopener noreferrer'>
+									<a className={cn`opacity-0 await-200 speed-500 ${inView && 'animate-from-right-sm'}`} hrefLang='en' target='_blank' rel='noopener noreferrer'>
 										<Button>
 											VISIT WEBSITE
 										</Button>
 									</a>
 								</Link>
 								<Link href={githubUrl}>
-									<a className={cn`opacity-0 await-300 speed-500 ${inView && 'animate-from-right-sm'}`} target='_blank' rel='noopener noreferrer'>
+									<a className={cn`opacity-0 await-300 speed-500 ${inView && 'animate-from-right-sm'}`} hrefLang='en' target='_blank' rel='noopener noreferrer'>
 										<Button className='lg:w-32' outlined>
 											GITHUB
 											<GithubIcon className='pb-px' />
