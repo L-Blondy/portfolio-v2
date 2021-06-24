@@ -51,6 +51,7 @@ export const Footer = () => {
 								hrefLang='en'
 								rel='noopener noreferrer'
 								target='_blank'>
+								<span className='absolute invisible pointer-events-none'>Linkedin</span>
 								<LinkedinIcon
 									className={cn`${inView && 'animate-scalein'}`}
 									fill='currentColor'
@@ -65,6 +66,7 @@ export const Footer = () => {
 								hrefLang='en'
 								rel='noopener noreferrer'
 								target='_blank'>
+								<span className='absolute invisible pointer-events-none'>Github</span>
 								<GithubIcon width={36} fill='currentColor' />
 							</a>
 						</Link>

@@ -27,6 +27,7 @@ export const Resume = () => {
 				</div>
 				<div className={cn`self-center opacity-0 ${inView && 'animate-from-bottom md:animate-from-right'}`}>
 					<ResumeLink className={``}>
+						<span className='absolute invisible pointer-events-none'>View Resume</span>
 						<Button
 							className='pl-5 pr-5 leading-6 text-white text-opacity-85 md:w-40'
 							style={{ backgroundColor: '#4fd6ff61', borderColor: 'transparent', fontSize: '18px', paddingBottom: '0.5rem' }}>

@@ -91,7 +91,7 @@ export const SKILLS: SkillConfig[] = [
 export const META = {
 	URL: 'https://portfolio-v2-eosin.vercel.app/',
 	TITLE: 'Laurent Blondy | Frontend Software Developer',
-	DESCRIPTION: `${HEADER.TITLE.split('<br />').join('')}\n${HEADER.DESCRIPTION.split('<br />').join('')}`,
+	DESCRIPTION: `${HEADER.TITLE.split('<br />').join('')}.\n${HEADER.DESCRIPTION.split('<br />').join('')}`,
 	LANGUAGE: 'en_US',
 	ICON: {
 		rel: 'icon',
