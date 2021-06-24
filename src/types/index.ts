@@ -1,7 +1,6 @@
 export interface BaseProjectProps {
 	title: string
 	description: string
-	technologies?: any
 	githubUrl: string
 	projectUrl: string
 }

@@ -15,7 +15,6 @@ export interface Props extends BaseProjectProps {
 export const ImageProject = ({
 	title,
 	description,
-	technologies,
 	githubUrl,
 	projectUrl,
 	images,

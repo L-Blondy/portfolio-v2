@@ -25,7 +25,6 @@ interface Props extends BaseProjectProps {
 export const VideoProject = ({
 	title,
 	description,
-	technologies,
 	githubUrl,
 	projectUrl,
 	canPlay,
