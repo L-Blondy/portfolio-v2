@@ -34,7 +34,7 @@ export const Profile = () => {
 							I am a front-end software developer currently working at Cenozai where I build web applications for data visualization and processing.
 						</p>
 						<p className='filter brightness-110'>
-							Well organized person, problem solver, independant employee and strong team player, I love working on ambitious projects with positive people.
+							Well organized person, problem solver, independent employee and strong team player, I love working on ambitious projects with positive people.
 						</p>
 						<p className='filter brightness-110'>
 							I strive for clean, reusable and maintainable code. A healthy code base is key to making great products!
@@ -59,6 +59,7 @@ export const Profile = () => {
 				<div className='absolute inset-y-0 right-0' style={{ width: '500%' }}>
 					<Image
 						src='/binary.jpg'
+						alt='Background image for the Profile section'
 						objectFit='contain'
 						objectPosition='right'
 						layout='fill'

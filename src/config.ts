@@ -6,6 +6,11 @@ export const VIDEO_PLAYBACK_RATE = 1
 
 export const FOOTER_BACKGROUND_COLOR = '#333f42'
 
+export const HEADER = {
+	TITLE: 'Building Solid<br /> Data Driven<br /> Web Applications',
+	DESCRIPTION: 'Taking clean, reusable and<br /> maintainable code as a requirement.<br /> Making user experience a priority.',
+}
+
 export const PROJECTS: ProjectConfig[] = [
 	{
 		TITLE: 'H2O.ai',
@@ -81,3 +86,41 @@ export const SKILLS: SkillConfig[] = [
 		CONTENT: 'Figma',
 	}
 ]
+
+
+export const META = {
+	URL: 'https://portfolio-v2-eosin.vercel.app/',
+	TITLE: 'Laurent Blondy | Frontend Software Developer',
+	DESCRIPTION: `${HEADER.TITLE.split('<br />').join('')}\n${HEADER.DESCRIPTION.split('<br />').join('')}`,
+	LANGUAGE: 'en_US',
+	ICON: {
+		rel: 'icon',
+		href: `/favicon.ico`,
+		sizes: "32x32",
+	},
+	APPLE_TOUCH_IMAGE: {
+		rel: 'apple-touch-icon',
+		href: `/apple-touch-icon.png`,
+		sizes: '64x64'
+	},
+	OG: {
+		IMAGE: {
+			url: '/open-graph-image.jpg',
+			width: 981,
+			height: 665,
+			alt: 'Laurent Blondy | Frontend Software Developer',
+		},
+		TAGS: [
+			'Laurent',
+			'Blondy',
+			'Laurent Blondy',
+			'Web dev',
+			'Frontend web dev',
+			'Frontend web dev portfolio',
+			'Web dev protfolio',
+			'Frontend developer',
+			'portfolio',
+			'Frontend developer portfolio'
+		]
+	}
+}

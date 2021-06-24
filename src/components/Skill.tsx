@@ -19,7 +19,7 @@ export const Skill = forwardRef<HTMLDivElement, SkillProps>(({
 	return (
 		<div ref={ref} className={`flex justify-center ${className}`}>
 			<div className='inline-flex flex-col text-center w-52'>
-				<Image src={icon} height={48} width={48} loading='eager' />
+				<Image src={icon} height={48} width={48} loading='eager' alt={title} />
 				<h2 className='text-xl mt-3.5 mb-1.5 text-gray-700'>{title}</h2>
 				<p className='opacity-90'>{content}</p>
 			</div>

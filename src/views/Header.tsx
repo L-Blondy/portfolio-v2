@@ -1,10 +1,14 @@
 import { Button } from 'components/Button'
 import { HeaderImage } from 'components/HeaderImage'
+import { HEADER, META } from 'config'
 import { useUpdatedRef } from 'hooks/useUpdatedRef'
 import { useEffect, useRef, useState } from 'react'
 import { ALIGN, SECTION_ID } from 'types'
 import { cn } from 'utils/cn'
 import { scrollsToSection } from 'utils/scrollsToSection'
+
+const title = () => ({ __html: HEADER.TITLE })
+const description = () => ({ __html: HEADER.DESCRIPTION })
 
 
 interface Props {
@@ -66,17 +70,9 @@ export const Header = ({
 					${isLoaded ? 'scale-100' : 'scale-98'}
 				`}>
 				<div className={`h-full flex flex-col justify-center transition-opacity  ${isBurgerMenuOpen ? 'animate-fadeout-fast md:animate-fadein-fast' : 'animate-fadein-fast'}`}>
-					<h1 className='mb-3'>
-						Building Solid<br />
-						Data Driven<br />
-						Web Applications
-					</h1>
+					<h1 className='mb-3' dangerouslySetInnerHTML={title()} />
 
-					<h3 className='mb-10 md:mb-12 opacity-80'>
-						Taking clean, reusable and<br />
-						maintainable code as a requirement.<br />
-						Making user experience a priority.
-					</h3>
+					<h3 className='mb-10 md:mb-12 opacity-80' dangerouslySetInnerHTML={description()} />
 
 					<div className='flex flex-col md:flex-row-reverse md:justify-end gap-2.5 md:gap-4'>
 						<Button
@@ -97,8 +93,8 @@ export const Header = ({
 				<div className='relative h-full w-full md:flex md:items-center xl:-ml-4 mt-4 xs:mt-0 xl:mt-4 pb-10 md:pb-0'>
 					<HeaderImage
 						onLoad={() => setIsLoaded(true)}
-						src="/graphnew.jpg"
-						alt=""
+						src='/graphnew.jpg'
+						alt='Background image for the Landing page'
 						style={{ maxHeight: '480px', maxWidth: '660px' }}
 						className='w-full h-full object-right-top object-contain sm:object-top md:object-left md:object-cover'
 						loading='lazy'
