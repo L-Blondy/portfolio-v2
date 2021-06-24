@@ -3,14 +3,31 @@ import Image from 'next/image'
 import { SECTION_ID } from 'types'
 import { scrollsToSection } from 'utils/scrollsToSection'
 import { TypeWriter } from 'components/TypeWriter';
-import { InView } from 'react-intersection-observer';
+import { InView, useInView } from 'react-intersection-observer';
 import { cn } from 'utils/cn';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 
 export const Profile = () => {
 
+	const { ref: titleRef, inView: titleInView } = useInView()
+	const { ref: chatRef, inView: chatInView } = useInView({ triggerOnce: true })
 	const [ isTitleTyped, setIsTitleTyped ] = useState(false)
+	const cancelTokenRef = useRef<NodeJS.Timeout>()
+
+	function handleTypingDone() {
+		cancelTokenRef.current = setTimeout(() => setIsTitleTyped(true), 3500)
+	}
+
+	useEffect(() => {
+		if (titleInView || chatInView) return
+		reset()
+	}, [ titleInView, chatInView ])
+
+	function reset() {
+		cancelTokenRef.current && clearTimeout(cancelTokenRef.current)
+		setIsTitleTyped(false)
+	}
 
 	return (
 		<article id={SECTION_ID.PROFILE} className='relative -mt-10 2xs:my-0 overflow-hidden'>
@@ -18,15 +35,11 @@ export const Profile = () => {
 				<div className='md:w-2/3 xs:text-lg'>
 
 					<h2 className='h1 pb-6'>
-						<InView triggerOnce>
-							{({ ref, inView }) => (
-								<div ref={ref}>
-									<TypeWriter startDelay={0} avgTypingDelay={100} disabled={!inView} onTypingDone={() => setTimeout(() => setIsTitleTyped(true), 3500)} >
-										Hi, I’m Laurent.
-									</TypeWriter>
-								</div>
-							)}
-						</InView>
+						<div ref={titleRef}>
+							<TypeWriter startDelay={0} avgTypingDelay={100} disabled={!titleInView} onTypingDone={handleTypingDone} >
+								Hi, I’m Laurent.
+							</TypeWriter>
+						</div>
 					</h2>
 
 					<div className='flex flex-col gap-4' >
@@ -39,19 +52,15 @@ export const Profile = () => {
 						<p className='filter brightness-110'>
 							I strive for clean, reusable and maintainable code. A healthy code base is key to making great products!
 						</p>
-						<InView triggerOnce>
-							{({ ref, inView }) => (
-								<button
-									ref={ref}
-									className={cn`link text-primary self-start leading-9 pr-4`}
-									aria-label="Let's have a chat."
-									onClick={scrollsToSection(SECTION_ID.CONTACT)}>
-									<TypeWriter startDelay={350} avgTypingDelay={70} disabled={!inView || !isTitleTyped}>
-										Let’s have a chat.
-									</TypeWriter>
-								</button>
-							)}
-						</InView>
+						<button
+							ref={chatRef}
+							className={cn`link text-primary self-start leading-9 pr-4`}
+							aria-label="Let's have a chat."
+							onClick={scrollsToSection(SECTION_ID.CONTACT)}>
+							<TypeWriter startDelay={350} avgTypingDelay={70} disabled={!chatInView || !isTitleTyped}>
+								Let’s have a chat.
+							</TypeWriter>
+						</button>
 					</div>
 
 				</div>
