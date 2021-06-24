@@ -36,7 +36,6 @@ export const VideoProject = ({
 
 	const [ device, setDevice ] = useState<DEVICE>(DEVICE.TABLET)
 	const [ wasPaused, setWasPaused ] = useState(false)
-	console.log(wasPaused, canPlay)
 
 	return (
 		<InView
