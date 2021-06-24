@@ -17,7 +17,7 @@ export const Resume = () => {
 			<div className='container flex flex-col md:flex-row md:justify-between gap-6'>
 				<div className='flex flex-col gap-6 xl:gap-8'>
 					<div className={cn`transform md:origin-left transition-all duration-1000 ${inView ? 'scale-100 opacity-100 translate-x-0' : 'opacity-0 md:-translate-x-6 scale-90'}`}>
-						<h4 className='h1 opacity-90'>Like What you see?</h4>
+						<h3 className='h1 opacity-90'>Like What you see?</h3>
 					</div>
 					<div className={cn`opacity-80 text-lg md:text-xl ${isDoneWriting && 'pr-3.5'}`}>
 						<TypeWriter startDelay={1000} cursor={{ hideWhenDoneDelay: 0 }} onTypingDone={() => setIsDoneWriting(true)} disabled={!inView}>

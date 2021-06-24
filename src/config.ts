@@ -92,7 +92,7 @@ export const META = {
 	URL: 'https://portfolio-v2-eosin.vercel.app/',
 	TITLE: 'Laurent Blondy | Frontend Software Developer',
 	DESCRIPTION: `${HEADER.TITLE.split('<br />').join('')}.\n${HEADER.DESCRIPTION.split('<br />').join('')}`,
-	LANGUAGE: 'en_US',
+	LANGUAGE: 'en',
 	ICON: {
 		rel: 'icon',
 		href: `/favicon.ico`,
@@ -104,6 +104,7 @@ export const META = {
 		sizes: '64x64'
 	},
 	OG: {
+		LOCALE: 'en_US',
 		IMAGE: {
 			url: '/open-graph-image.jpg',
 			width: 981,

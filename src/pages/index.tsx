@@ -25,7 +25,7 @@ export default function Home() {
         openGraph={{
           url: META.URL,
           site_name: META.TITLE,
-          locale: META.LANGUAGE,
+          locale: META.OG.LOCALE,
           description: META.DESCRIPTION,
           title: META.TITLE,
           type: 'website',
