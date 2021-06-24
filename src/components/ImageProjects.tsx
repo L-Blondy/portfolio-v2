@@ -5,7 +5,7 @@ import { PROJECTS } from 'config'
 export const ImageProjects = () => {
 
 	return (
-		<section className=' flex flex-col gap-24'>
+		<section className='flex flex-col gap-24'>
 			{PROJECTS.map(PROJECT => (
 				<ImageProject
 					title={PROJECT.TITLE}

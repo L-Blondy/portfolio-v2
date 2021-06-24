@@ -53,7 +53,7 @@ export const Header = ({
 			<HeaderPreloader isLoading={!isLoaded} />
 
 			<div
-				className={`
+				className={cn`
 					flex
 					items-center
 					justify-center

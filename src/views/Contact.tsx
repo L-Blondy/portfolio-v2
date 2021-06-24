@@ -25,7 +25,7 @@ export const Contact = () => {
 			<InView>
 				{({ ref, inView }) => (
 					<div ref={ref} className='flex flex-col gap-5 text-center mb-4'>
-						<h1 className={cn`text-primary-xdark opacity-0 ${inView && 'animate-scalein'}`}>Contact me</h1>
+						<h2 className={cn`h1 text-primary-xdark opacity-0 ${inView && 'animate-scalein'}`}>Contact me</h2>
 						<div className='text-lg opacity-80'>
 							<p className={cn`opacity-0 await-150 ${inView && 'animate-from-right-sm'}`}>Feel free to reach out.</p>
 							<p className={cn`opacity-0 await-150 ${inView && 'animate-from-left-sm'}`}>I'd love to hear from you!</p>
@@ -66,7 +66,7 @@ export const Contact = () => {
 							</div>
 
 							<div
-								className={`
+								className={cn`
 								md:col-span-2
 								${css.container} 
 								transition-all

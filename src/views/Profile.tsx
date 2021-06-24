@@ -17,7 +17,7 @@ export const Profile = () => {
 			<div className='container py-14 md:py-16 lg:py-20 xl:py-24'>
 				<div className='md:w-2/3 xs:text-lg'>
 
-					<h1 className='pb-6'>
+					<h2 className='h1 pb-6'>
 						<InView triggerOnce>
 							{({ ref, inView }) => (
 								<div ref={ref}>
@@ -27,7 +27,7 @@ export const Profile = () => {
 								</div>
 							)}
 						</InView>
-					</h1>
+					</h2>
 
 					<div className='flex flex-col gap-4' >
 						<p className='filter brightness-110'>

@@ -30,7 +30,7 @@ export const Footer = () => {
 		<footer className='mt-24 pt-12 pb-16 text-white md:pt-8 md:pb-12 overflow-hidden' style={{ background: FOOTER_BACKGROUND_COLOR }}>
 			<div className='container'>
 				<div className='flex flex-col gap-6 md:gap-4 lg:gap-6 md:flex-row md:justify-between'>
-					<h1 ref={ref} className='flex items-center justify-center gap-3 md:justify-start md:order-1'>
+					<h2 ref={ref} className='h1 flex items-center justify-center gap-3 md:justify-start md:order-1'>
 						<div className={cn`text-primary filter brightness-110 ${isDoneTyping1 && ''}`}>
 							<div className={cn`md:invisible ${inView && 'animate-from-left-sm md:animate-none'}`}>
 								Laurent
@@ -42,7 +42,7 @@ export const Footer = () => {
 						<div className={cn`text-primary filter brightness-75 opacity-0 ${inView && 'animate-from-right-sm md:animate-none'} ${isDoneTyping1 && 'md:animate-scalein'}`}>
 							Blondy
 						</div>
-					</h1>
+					</h2>
 
 					<div className='flex-center gap-6 md:row-span-2 md:justify-end md:order-3 md:-mb-1' style={{ color: '#d5e3e6' }}>
 						<Link href='https://it.linkedin.com/in/laurent-blondy-72b364172'>

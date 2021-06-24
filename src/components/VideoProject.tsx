@@ -70,7 +70,7 @@ export const VideoProject = ({
 							</div>
 
 							<div
-								className={`
+								className={cn`
 									absolute 
 									inset-0
 									flex-center
@@ -106,6 +106,7 @@ export const VideoProject = ({
 							<div className='flex gap-3 py-1'>
 								<Link href={projectUrl}>
 									<a className={cn`opacity-0 await-200 speed-500 ${inView && 'animate-from-right-sm'}`} hrefLang='en' target='_blank' rel='noopener noreferrer'>
+										<span className='absolute invisible pointer-events-none'>VISIT WEBSITE</span>
 										<Button>
 											VISIT WEBSITE
 										</Button>
@@ -113,6 +114,7 @@ export const VideoProject = ({
 								</Link>
 								<Link href={githubUrl}>
 									<a className={cn`opacity-0 await-300 speed-500 ${inView && 'animate-from-right-sm'}`} hrefLang='en' target='_blank' rel='noopener noreferrer'>
+										<span className='absolute invisible pointer-events-none'>GITHUB</span>
 										<Button className='lg:w-32' outlined>
 											GITHUB
 											<GithubIcon className='pb-px' />
