@@ -10,6 +10,8 @@ import { Footer } from 'views/Footer'
 import { useState } from 'react'
 import { META } from 'config'
 import { DefaultSeo } from 'next-seo';
+import { InView } from 'react-intersection-observer'
+import { cn } from 'utils/cn'
 
 export default function Home() {
 
@@ -72,7 +74,11 @@ export default function Home() {
       <main className='main'>
         <Profile />
         <Skills />
-        <div className='divider mt-10 md:mt-14 lg:mt-18' />
+        <InView>
+          {({ ref, inView }) => (
+            <div ref={ref} className={cn`divider mt-10 md:mt-14 lg:mt-18 transform transition-transform duration-1000 ease-out ${inView ? 'scale-x-100' : 'scale-x-0'}`} />
+          )}
+        </InView>
         <Projects />
         <Resume />
         <Contact />
