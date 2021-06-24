@@ -21,7 +21,7 @@ export const Contact = () => {
 	const { formRef, isSubmitting, sentWithSuccess, handleSubmit } = useContactForm()
 
 	return (
-		<div id={SECTION_ID.CONTACT} className='container flex flex-col gap-7 pt-8 mt-12'>
+		<div id={SECTION_ID.CONTACT} className='container flex flex-col gap-7 pt-8 mt-12 overflow-hidden'>
 			<InView>
 				{({ ref, inView }) => (
 					<div ref={ref} className='flex flex-col gap-5 text-center mb-4'>
