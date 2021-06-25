@@ -1,3 +1,4 @@
+import { useWindowWidth } from '@react-hook/window-size'
 import React, { SyntheticEvent, useEffect, useRef, useState } from 'react'
 
 
@@ -25,11 +26,7 @@ export const Video = ({
 	const ref = useRef<HTMLVideoElement | null>(null)
 	const [ isHover, setIsHover ] = useState(false)
 
-	const [ preload, setPreload ] = useState('none')
-	useEffect(() => {
-		setTimeout(() => setPreload('auto'), 5000)
-	}, [])
-
+	const shouldPreload = useShouldPreload()
 	usePlay(play, ref)
 	usePlaybackRate(playbackRate, ref)
 
@@ -53,7 +50,7 @@ export const Video = ({
 			onMouseEnter={() => setIsHover(true)}
 			onMouseLeave={() => setIsHover(false)}
 			disablePictureInPicture
-			preload={preload}
+			preload={shouldPreload}
 			{...props}>
 			<source src={src} type={type} />
 		</video>
@@ -79,4 +76,14 @@ function usePlaybackRate(rate: number, videoRef: React.MutableRefObject<HTMLVide
 		video.defaultPlaybackRate = rate
 		video.playbackRate = rate
 	}, [ rate ])
+}
+
+function useShouldPreload() {
+	const [ preload, setPreload ] = useState<'auto' | 'none' | 'metadata'>('none')
+	const windowWidth = useWindowWidth()
+	useEffect(() => {
+		windowWidth > 768 && setPreload('auto')
+	}, [ windowWidth ])
+
+	return preload
 }
