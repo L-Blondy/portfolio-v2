@@ -9,7 +9,7 @@ export interface BaseProjectProps {
 export interface ProjectConfig {
 	TITLE: string
 	DESCRIPTION: string
-	TECHNOLOGIES: string | React.ReactChild
+	TECHNOLOGIES: string | React.ReactChild | number | null | false | undefined
 	URL: {
 		PROJECT: string
 		GITHUB: string
