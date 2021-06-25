@@ -27,6 +27,7 @@ export const Video = pure(({
 	preloadWhen,
 	...props
 }: Props) => {
+	console.log('render', src)
 
 	const ref = useRef<HTMLVideoElement | null>(null)
 	const [ isHover, setIsHover ] = useState(false)
