@@ -116,7 +116,7 @@ function HeaderPreloader({
 	const [ display, setDisplay ] = useState(true)
 
 	useEffect(() => {
-		setTimeout(() => setDisplay(false), 1000)
+		!isLoading && setTimeout(() => setDisplay(false), 1000)
 	}, [ isLoading ])
 
 	const notLoadingClass = 'animate-fadeout pointer-events-none'
@@ -124,6 +124,6 @@ function HeaderPreloader({
 	if (!display) return null
 
 	return (
-		<div className={`fixed inset-0 bg-white z-10 flex items-center justify-center ${isLoading ? '' : notLoadingClass}`} />
+		<div className={`fixed inset-0 bg-white z-50 flex items-center justify-center ${isLoading ? '' : notLoadingClass}`} />
 	)
 }
