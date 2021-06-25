@@ -14,6 +14,9 @@ const animationDelay = plugin(({ addUtilities }) => {
 		'.await-200': {
 			'animation-delay': '200ms',
 		},
+		'.await-250': {
+			'animation-delay': '250ms',
+		},
 		'.await-300': {
 			'animation-delay': '300ms',
 		},

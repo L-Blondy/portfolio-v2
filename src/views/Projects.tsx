@@ -32,7 +32,7 @@ export const Projects = () => {
 					tab={activeTab}
 				/>
 
-				{width >= 768 || !isMounted
+				{width > 768 || !isMounted
 					? <VideoProjects />
 					: <ImageProjects />
 				}

@@ -1,6 +1,7 @@
 export interface BaseProjectProps {
 	title: string
 	description: string
+	technologies: string
 	githubUrl: string
 	projectUrl: string
 }
@@ -8,6 +9,7 @@ export interface BaseProjectProps {
 export interface ProjectConfig {
 	TITLE: string
 	DESCRIPTION: string
+	TECHNOLOGIES: string | JSX.Element
 	URL: {
 		PROJECT: string
 		GITHUB: string

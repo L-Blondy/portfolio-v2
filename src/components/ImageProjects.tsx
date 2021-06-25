@@ -10,6 +10,7 @@ export const ImageProjects = () => {
 				<ImageProject
 					title={PROJECT.TITLE}
 					description={PROJECT.DESCRIPTION}
+					technologies={PROJECT.TECHNOLOGIES}
 					projectUrl={PROJECT.URL.PROJECT}
 					githubUrl={PROJECT.URL.GITHUB}
 					images={PROJECT.IMAGES}

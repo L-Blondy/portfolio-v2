@@ -25,6 +25,7 @@ interface Props extends BaseProjectProps {
 export const VideoProject = ({
 	title,
 	description,
+	technologies,
 	githubUrl,
 	projectUrl,
 	canPlay,
@@ -100,12 +101,28 @@ export const VideoProject = ({
 
 				<InView rootMargin='99999px 0px 0px 0px' root={getObserverRootElement()}>
 					{({ ref, inView }) => (
-						<div ref={ref} className='flex flex-col gap-4'>
-							<h2 className={cn`text-3xl opacity-0 speed-500 ${inView && 'animate-from-right-sm'}`}>{title}</h2>
-							<p className={cn`opacity-0 await-100 speed-500 ${inView && 'animate-from-right-sm'}`}>{description}</p>
-							<div className='flex gap-3 py-1'>
+						<div ref={ref} className='flex flex-col'>
+							<h2 className={cn`mb-2.5 text-3xl opacity-0 speed-500 ${inView && 'animate-from-right-sm'}`}>
+								{title}
+							</h2>
+							<div>
+								<div className='opacity-90'>
+									<p className={cn`opacity-0 await-75 speed-500 ${inView && 'animate-from-right-sm'}`}>
+										{description}
+									</p>
+								</div>
+								<h3 className={cn`text-lg my-1.5 opacity-0 await-150 speed-500 ${inView && 'animate-from-right-sm'}`}>
+									Technology
+								</h3>
+								<div className='opacity-90'>
+									<p className={cn`opacity-0 await-250 speed-500 ${inView && 'animate-from-right-sm'}`}>
+										{technologies}
+									</p>
+								</div>
+							</div>
+							<div className={cn`flex mt-4 gap-3 py-1 opacity-0 await-250 speed-700 ${inView && 'animate-from-right-sm'}`}>
 								<Link href={projectUrl}>
-									<a className={cn`opacity-0 await-200 speed-500 ${inView && 'animate-from-right-sm'}`} hrefLang='en' target='_blank' rel='noopener noreferrer'>
+									<a hrefLang='en' target='_blank' rel='noopener noreferrer'>
 										<span className='absolute invisible pointer-events-none'>VISIT WEBSITE</span>
 										<Button>
 											VISIT WEBSITE
@@ -113,7 +130,7 @@ export const VideoProject = ({
 									</a>
 								</Link>
 								<Link href={githubUrl}>
-									<a className={cn`opacity-0 await-300 speed-500 ${inView && 'animate-from-right-sm'}`} hrefLang='en' target='_blank' rel='noopener noreferrer'>
+									<a hrefLang='en' target='_blank' rel='noopener noreferrer'>
 										<span className='absolute invisible pointer-events-none'>GITHUB</span>
 										<Button className='lg:w-32' outlined>
 											GITHUB
@@ -125,7 +142,7 @@ export const VideoProject = ({
 						</div>
 					)}
 				</InView>
-			</div>
-		</InView>
+			</div >
+		</InView >
 	)
 }

@@ -36,6 +36,7 @@ export const VideoProjects = () => {
 				<VideoProject
 					title={PROJECT.TITLE}
 					description={PROJECT.DESCRIPTION}
+					technologies={PROJECT.TECHNOLOGIES}
 					srcTablet={PROJECT.VIDEO.TABLET}
 					srcPhone={PROJECT.VIDEO.PHONE}
 					onObserverEntry={handleObserverEntry}

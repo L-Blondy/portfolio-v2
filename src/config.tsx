@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { ProjectConfig, SkillConfig } from 'types'
 
 export const SLIDER_INTERVAL = 5000
@@ -25,8 +26,11 @@ export const PROJECTS: ProjectConfig[] = [
 	{
 		TITLE: 'H2O.ai',
 		DESCRIPTION: `
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			Website built over a 2 weeks Web Dev Challenge.
+			The requirements: build a fully functional website using no UI library.
+		`,
+		TECHNOLOGIES: `
+			Designed with Figma, built with React, I used the formspree API to handle the form submissions.
 		`,
 		URL: {
 			PROJECT: 'https://l-blondy.github.io/H2O/',
@@ -40,9 +44,18 @@ export const PROJECTS: ProjectConfig[] = [
 	}, {
 		TITLE: 'Tina Ponticelli',
 		DESCRIPTION: `
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			A website featuring the works of Tina Ponticelli, an Italian visual artist.
 		`,
+		TECHNOLOGIES: <>
+			The site was built with JQuery, SASS.
+			I build custom npm packages to handle image lazy loading and animations.
+			Feel free to check them out
+			<Link href='https://preview.npmjs.com/~l-blondy?tab=packages'>
+				<a className='text-primary font-semibold pl-1.5 hover:underline' hrefLang='en' aria-label='Laurent Blondy npm profile' target='_blank' rel='noopener noreferrer'>
+					here
+				</a>
+			</Link>.
+		</>,
 		URL: {
 			PROJECT: 'https://l-blondy.github.io/Tina-Ponticelli/',
 			GITHUB: 'https://github.com/L-Blondy/Tina-Ponticelli',
@@ -55,9 +68,18 @@ export const PROJECTS: ProjectConfig[] = [
 	}, {
 		TITLE: 'ClearWeather',
 		DESCRIPTION: `
-			A simple Web app built with React.js and Algolia search to quickly check the weather worldwide. 
-			Users type the search term and are offered a 16 days detailed weather forecast for the chosen location.
+			A simple Web app to quickly check the weather worldwide with a 16 days forecast. 
 		`,
+		// DESCRIPTION: `
+		// 	A simple Web app built with React.js and Algolia search to quickly check the weather worldwide. 
+		// 	Users type the search term and are offered a 16 days detailed weather forecast for the chosen location.
+		// `,
+		TECHNOLOGIES: `
+			ClearWeather is built with React.js and Algolia Places to provide places autocompletion.
+			The data is fetched from the WeatherBit and 7Timer APIs, standardised client side and passed to Recharts to display the graphs.
+		`,
+		// The Slack bot interacts with a Node.js app living on Heroku, which requests information from a free domain-checking api, 
+		// parses the response, and delivers a colour-coded response back to the client.
 		URL: {
 			PROJECT: 'https://l-blondy.github.io/weather/',
 			GITHUB: 'https://github.com/L-Blondy/weather',
