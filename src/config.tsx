@@ -48,7 +48,7 @@ export const PROJECTS: ProjectConfig[] = [
 		`,
 		TECHNOLOGIES: <>
 			The site was built with JQuery, SASS.
-			I build custom npm packages to handle image lazy loading and animations.
+			I built custom npm packages to handle image lazy loading and animations.
 			Feel free to check them out
 			<Link href='https://preview.npmjs.com/~l-blondy?tab=packages'>
 				<a className='text-primary font-semibold pl-1.5 hover:underline' hrefLang='en' aria-label='Laurent Blondy npm profile' target='_blank' rel='noopener noreferrer'>
@@ -130,7 +130,7 @@ export const SKILLS: SkillConfig[] = [
 
 
 export const META = {
-	URL: 'https://portfolio-v2-eosin.vercel.app/',
+	URL: 'https://laurent.blondy.dev/',
 	TITLE: 'Laurent Blondy | Frontend Software Developer',
 	DESCRIPTION: `${HEADER.TITLE.split('<br />').join('')}.\n${HEADER.DESCRIPTION.split('<br />').join('')}`,
 	LANGUAGE: 'en',
