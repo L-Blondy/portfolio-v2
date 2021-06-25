@@ -25,6 +25,11 @@ export const Video = ({
 	const ref = useRef<HTMLVideoElement | null>(null)
 	const [ isHover, setIsHover ] = useState(false)
 
+	const [ preload, setPreload ] = useState('none')
+	useEffect(() => {
+		setTimeout(() => setPreload('auto'), 5000)
+	}, [])
+
 	usePlay(play, ref)
 	usePlaybackRate(playbackRate, ref)
 
@@ -48,6 +53,7 @@ export const Video = ({
 			onMouseEnter={() => setIsHover(true)}
 			onMouseLeave={() => setIsHover(false)}
 			disablePictureInPicture
+			preload={preload}
 			{...props}>
 			<source src={src} type={type} />
 		</video>
