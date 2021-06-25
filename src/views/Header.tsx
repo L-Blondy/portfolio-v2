@@ -124,6 +124,6 @@ function HeaderPreloader({
 	if (!display) return null
 
 	return (
-		<div className={`fixed inset-0 bg-white z-50 flex items-center justify-center ${isLoading ? '' : notLoadingClass}`} />
+		<div className={`fixed inset-0 bg-white z-10 flex items-center justify-center ${isLoading ? '' : notLoadingClass}`} />
 	)
 }
