@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { InView } from 'react-intersection-observer'
 import { Video } from 'components/Video'
 import { Button } from 'components/Button'
@@ -39,6 +39,13 @@ export const VideoProject = ({
 	const [ wasPaused, setWasPaused ] = useState(false)
 	const windowWidth = useWindowWidth()
 
+	const handledEnded = useCallback((device: DEVICE) => () => setDevice(device), [])
+	const handlePause = useCallback(() => () => setWasPaused(true), [])
+	const handlePlay = useCallback((device: DEVICE) => () => {
+		setDevice(device)
+		setWasPaused(false)
+	}, [])
+
 	return (
 		<InView
 			as='article'
@@ -64,10 +71,10 @@ export const VideoProject = ({
 									src={srcTablet}
 									type='video/mp4'
 									play={canPlay && device === DEVICE.TABLET}
-									onEnded={() => setDevice(DEVICE.PHONE)}
+									onEnded={handledEnded(DEVICE.PHONE)}
 									playbackRate={VIDEO_PLAYBACK_RATE}
-									onPause={() => { setWasPaused(true) }}
-									onPlay={() => { setDevice(DEVICE.TABLET); setWasPaused(false) }}
+									onPause={handlePause()}
+									onPlay={handlePlay(DEVICE.TABLET)}
 									preloadWhen={windowWidth > 768}
 									muted
 								/>
@@ -91,10 +98,10 @@ export const VideoProject = ({
 									src={srcPhone}
 									type='video/mp4'
 									play={canPlay && device === DEVICE.PHONE}
-									onEnded={() => setDevice(DEVICE.TABLET)}
+									onEnded={handledEnded(DEVICE.TABLET)}
 									playbackRate={VIDEO_PLAYBACK_RATE}
-									onPause={() => { setWasPaused(true) }}
-									onPlay={() => { setDevice(DEVICE.PHONE); setWasPaused(false) }}
+									onPause={handlePause()}
+									onPlay={handlePlay(DEVICE.PHONE)}
 									preloadWhen={windowWidth > 768}
 									muted
 								/>
