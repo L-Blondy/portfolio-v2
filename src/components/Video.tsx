@@ -25,8 +25,12 @@ export const Video = ({
 
 	const ref = useRef<HTMLVideoElement | null>(null)
 	const [ isHover, setIsHover ] = useState(false)
+	const windowWidth = useWindowWidth()
+	const shouldPreload = useShouldPreload({
+		preloadWhen: windowWidth > 768,
+		preloadDelay: 3000
+	})
 
-	const shouldPreload = useShouldPreload()
 	usePlay(play, ref)
 	usePlaybackRate(playbackRate, ref)
 
@@ -78,12 +82,24 @@ function usePlaybackRate(rate: number, videoRef: React.MutableRefObject<HTMLVide
 	}, [ rate ])
 }
 
-function useShouldPreload() {
+
+interface PreloadConfig {
+	preloadWhen: boolean
+	preloadDelay: number
+}
+
+function useShouldPreload({
+	preloadWhen,
+	preloadDelay,
+}: PreloadConfig) {
+	const cancelTokenRef = useRef<NodeJS.Timeout>()
 	const [ preload, setPreload ] = useState<'auto' | 'none' | 'metadata'>('none')
-	const windowWidth = useWindowWidth()
+
 	useEffect(() => {
-		windowWidth > 768 && setPreload('auto')
-	}, [ windowWidth ])
+		cancelTokenRef.current && clearTimeout(cancelTokenRef.current)
+		if (!preloadWhen) return
+		cancelTokenRef.current = setTimeout(() => setPreload('auto'), preloadDelay)
+	}, [ preloadDelay, preloadWhen ])
 
 	return preload
 }
