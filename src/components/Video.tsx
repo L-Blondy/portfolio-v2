@@ -94,13 +94,13 @@ function useShouldPreload({
 	preloadDelay,
 }: ShouldPreloadConfig) {
 	const cancelTokenRef = useRef<NodeJS.Timeout>()
-	const [ preload, setPreload ] = useState<'auto' | 'none' | 'metadata'>('none')
+	const [ shouldPreload, setShouldPreload ] = useState<'auto' | 'none'>('none')
 
 	useEffect(() => {
 		cancelTokenRef.current && clearTimeout(cancelTokenRef.current)
-		if (!preloadWhen) return
-		cancelTokenRef.current = setTimeout(() => setPreload('auto'), preloadDelay)
-	}, [ preloadDelay, preloadWhen ])
+		if (!preloadWhen || shouldPreload === 'auto') return
+		cancelTokenRef.current = setTimeout(() => setShouldPreload('auto'), preloadDelay)
+	}, [ preloadDelay, preloadWhen, shouldPreload ])
 
-	return preload
+	return shouldPreload
 }
