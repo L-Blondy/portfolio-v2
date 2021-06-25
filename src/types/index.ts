@@ -1,15 +1,15 @@
 export interface BaseProjectProps {
-	title: string
-	description: string
-	technologies: string
-	githubUrl: string
-	projectUrl: string
+	title: ProjectConfig[ 'TITLE' ]
+	description: ProjectConfig[ 'DESCRIPTION' ]
+	technologies: ProjectConfig[ 'TECHNOLOGIES' ]
+	githubUrl: ProjectConfig[ 'URL' ][ 'GITHUB' ]
+	projectUrl: ProjectConfig[ 'URL' ][ 'PROJECT' ]
 }
 
 export interface ProjectConfig {
 	TITLE: string
 	DESCRIPTION: string
-	TECHNOLOGIES: string | React.ReactChild | number | null | false | undefined
+	TECHNOLOGIES: string | JSX.Element
 	URL: {
 		PROJECT: string
 		GITHUB: string
