@@ -10,6 +10,8 @@ interface Props extends Omit<React.ComponentProps<'video'>, 'children'> {
 	play: boolean
 	onToggle?: (isPlaying: boolean) => void
 	playbackRate?: number
+	preloadDelay?: number
+	preloadWhen: boolean
 }
 
 export const Video = ({
@@ -20,17 +22,16 @@ export const Video = ({
 	onPause = noop,
 	onToggle = noop,
 	playbackRate = 1,
+	preloadDelay = 3000,
+	preloadWhen,
 	...props
 }: Props) => {
 
 	const ref = useRef<HTMLVideoElement | null>(null)
 	const [ isHover, setIsHover ] = useState(false)
-	const windowWidth = useWindowWidth()
-	const shouldPreload = useShouldPreload({
-		preloadWhen: windowWidth > 768,
-		preloadDelay: 3000
-	})
 
+	// Custom hooks (see below)
+	const shouldPreload = useShouldPreload({ preloadWhen, preloadDelay })
 	usePlay(play, ref)
 	usePlaybackRate(playbackRate, ref)
 
@@ -83,7 +84,7 @@ function usePlaybackRate(rate: number, videoRef: React.MutableRefObject<HTMLVide
 }
 
 
-interface PreloadConfig {
+interface ShouldPreloadConfig {
 	preloadWhen: boolean
 	preloadDelay: number
 }
@@ -91,7 +92,7 @@ interface PreloadConfig {
 function useShouldPreload({
 	preloadWhen,
 	preloadDelay,
-}: PreloadConfig) {
+}: ShouldPreloadConfig) {
 	const cancelTokenRef = useRef<NodeJS.Timeout>()
 	const [ preload, setPreload ] = useState<'auto' | 'none' | 'metadata'>('none')
 

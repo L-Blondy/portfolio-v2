@@ -8,6 +8,7 @@ import { cn } from 'utils/cn'
 import { BaseProjectProps, ProjectConfig } from 'types'
 import { VIDEO_PLAYBACK_RATE } from 'config'
 import { getObserverRootElement } from 'utils/getObserverRootElement'
+import { useWindowWidth } from '@react-hook/window-size'
 
 
 enum DEVICE {
@@ -36,6 +37,7 @@ export const VideoProject = ({
 
 	const [ device, setDevice ] = useState<DEVICE>(DEVICE.TABLET)
 	const [ wasPaused, setWasPaused ] = useState(false)
+	const windowWidth = useWindowWidth()
 
 	return (
 		<InView
@@ -66,6 +68,7 @@ export const VideoProject = ({
 									playbackRate={VIDEO_PLAYBACK_RATE}
 									onPause={() => { setWasPaused(true) }}
 									onPlay={() => { setDevice(DEVICE.TABLET); setWasPaused(false) }}
+									preloadWhen={windowWidth > 768}
 									muted
 								/>
 							</div>
@@ -92,6 +95,7 @@ export const VideoProject = ({
 									playbackRate={VIDEO_PLAYBACK_RATE}
 									onPause={() => { setWasPaused(true) }}
 									onPlay={() => { setDevice(DEVICE.PHONE); setWasPaused(false) }}
+									preloadWhen={windowWidth > 768}
 									muted
 								/>
 							</div>
