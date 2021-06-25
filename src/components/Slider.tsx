@@ -38,7 +38,7 @@ export const Slider = forwardRef<HTMLDivElement, Props>(({
 	return (
 		<div ref={ref} className={`relative pt-1/2 overflow-hidden rounded slider ${className}`} onMouseEnter={() => setPlaySlider(false)} onMouseLeave={() => setPlaySlider(true)} onClick={handleClick}>
 			<div className={cn`slider-image ${getTransform(0, idx)} ${getZIndex(0, idx)} ${getDelay(0, idx)}`}>
-				<Image src={images[ 0 ]} layout='responsive' width={width} height={height} alt='slider-1' />
+				<Image src={images[ 0 ]} layout='responsive' width={width} height={height} alt='slider-1' loading='eager' />
 			</div>
 			<div className={cn`slider-image ${getTransform(1, idx)} ${getZIndex(1, idx)} ${getDelay(1, idx)}`}>
 				<Image src={images[ 1 ]} layout='responsive' width={width} height={height} alt='slider-2' />
