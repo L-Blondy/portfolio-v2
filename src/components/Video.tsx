@@ -27,13 +27,12 @@ export const Video = pure(({
 	preloadWhen,
 	...props
 }: Props) => {
-	console.log('render', src)
 
 	const ref = useRef<HTMLVideoElement | null>(null)
 	const [ isHover, setIsHover ] = useState(false)
 
 	// Custom hooks (see below)
-	const shouldPreload = useShouldPreload({ preloadWhen, preloadDelay })
+	const shouldPreload = useShouldPreload({ preloadWhen, preloadDelay, preloadType: 'metadata' })
 	usePlay(play, ref)
 	usePlaybackRate(playbackRate, ref)
 
@@ -89,20 +88,22 @@ function usePlaybackRate(rate: number, videoRef: React.MutableRefObject<HTMLVide
 interface ShouldPreloadConfig {
 	preloadWhen: boolean
 	preloadDelay: number
+	preloadType: 'metadata' | 'auto'
 }
 
 function useShouldPreload({
 	preloadWhen,
 	preloadDelay,
+	preloadType,
 }: ShouldPreloadConfig) {
 	const cancelTokenRef = useRef<NodeJS.Timeout>()
-	const [ shouldPreload, setShouldPreload ] = useState<'auto' | 'none'>('none')
+	const [ shouldPreload, setShouldPreload ] = useState<'metadata' | 'auto' | 'none'>('none')
 
 	useEffect(() => {
 		cancelTokenRef.current && clearTimeout(cancelTokenRef.current)
-		if (!preloadWhen || shouldPreload === 'auto') return
-		cancelTokenRef.current = setTimeout(() => setShouldPreload('auto'), preloadDelay)
-	}, [ preloadDelay, preloadWhen, shouldPreload ])
+		if (!preloadWhen || shouldPreload === preloadType) return
+		cancelTokenRef.current = setTimeout(() => setShouldPreload(preloadType), preloadDelay)
+	}, [ preloadDelay, preloadWhen, shouldPreload, preloadType ])
 
 	return shouldPreload
 }
