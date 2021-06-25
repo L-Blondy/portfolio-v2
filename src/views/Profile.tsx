@@ -6,6 +6,7 @@ import { TypeWriter } from 'components/TypeWriter';
 import { InView, useInView } from 'react-intersection-observer';
 import { cn } from 'utils/cn';
 import { useEffect, useRef, useState } from 'react';
+import { PROFILE } from 'config';
 
 
 export const Profile = () => {
@@ -37,32 +38,28 @@ export const Profile = () => {
 					<h2 className='h1 pb-6'>
 						<div ref={titleRef}>
 							<TypeWriter startDelay={0} avgTypingDelay={100} disabled={!titleInView} onTypingDone={handleTypingDone} >
-								Hi, I’m Laurent.
+								{PROFILE.TITLE}
 							</TypeWriter>
 						</div>
 					</h2>
 
 					<div className='flex flex-col gap-4' >
-						<p className='filter brightness-110'>
-							I am a front-end software developer currently working at Cenozai where I build web applications for data visualization and processing.
-						</p>
-						<p className='filter brightness-110'>
-							Well organized person, problem solver, independent employee and strong team player, I love working on ambitious projects with positive people.
-						</p>
-						<p className='filter brightness-110'>
-							I strive for clean, reusable and maintainable code. A healthy code base is key to making great products!
-						</p>
+						{PROFILE.PARAGRAPHS.map(PARAGRAPH => (
+							<p className='filter brightness-110' key={PARAGRAPH}>
+								{PARAGRAPH}
+							</p>
+						))}
+
 						<button
 							ref={chatRef}
 							className={cn`link text-primary self-start leading-9 pr-4`}
 							aria-label="Let's have a chat."
 							onClick={scrollsToSection(SECTION_ID.CONTACT)}>
 							<TypeWriter startDelay={350} avgTypingDelay={70} disabled={!chatInView || !isTitleTyped}>
-								Let’s have a chat.
+								{PROFILE.CONTACT_TEXT}
 							</TypeWriter>
 						</button>
 					</div>
-
 				</div>
 			</div>
 			<div className='absolute inset-0 -z-1'>

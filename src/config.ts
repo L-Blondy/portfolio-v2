@@ -11,6 +11,16 @@ export const HEADER = {
 	DESCRIPTION: 'Taking clean, reusable and<br /> maintainable code as a requirement.<br /> Making user experience a priority.',
 }
 
+export const PROFILE = {
+	TITLE: 'Hi, I’m Laurent.',
+	PARAGRAPHS: [
+		'I am a front-end software developer currently working at Cenozai where I build web applications for data visualization and processing.',
+		'Well organized person, problem solver, independent employee and strong team player, I love working on ambitious projects with positive people.',
+		'I strive for clean, reusable and maintainable code. A healthy code base is key to making great products!'
+	],
+	CONTACT_TEXT: 'Let’s have a chat.',
+}
+
 export const PROJECTS: ProjectConfig[] = [
 	{
 		TITLE: 'H2O.ai',
@@ -45,7 +55,7 @@ export const PROJECTS: ProjectConfig[] = [
 	}, {
 		TITLE: 'ClearWeather',
 		DESCRIPTION: `
-			A simple serverless web app built with React.js and Algolia search to quickly check the weather worldwide. 
+			A simple Web app built with React.js and Algolia search to quickly check the weather worldwide. 
 			Users type the search term and are offered a 16 days detailed weather forecast for the chosen location.
 		`,
 		URL: {
@@ -62,35 +72,35 @@ export const PROJECTS: ProjectConfig[] = [
 
 export const SKILLS: SkillConfig[] = [
 	{
-		ICON: '/icons/typescript.svg',
+		ICON: '/icons/typescript.min.svg',
 		TITLE: 'Languages',
 		CONTENT: 'Typescript, Javascript ES5+, HTML, CSS',
 	}, {
-		ICON: '/icons/react.svg',
+		ICON: '/icons/react.min.svg',
 		TITLE: 'Frameworks',
 		CONTENT: 'React.js, Next.js',
 	}, {
-		ICON: '/icons/webpack.svg',
+		ICON: '/icons/webpack.min.svg',
 		TITLE: 'Tooling',
 		CONTENT: 'Webpack, Babel, Git, NPM, Yarn',
 	}, {
-		ICON: '/icons/jest.svg',
+		ICON: '/icons/jest.min.svg',
 		TITLE: 'Testing',
 		CONTENT: 'Jest, Testing library',
 	}, {
-		ICON: '/icons/redux.svg',
+		ICON: '/icons/redux.min.svg',
 		TITLE: 'State management',
 		CONTENT: 'Redux, Zustand',
 	}, {
-		ICON: '/icons/axios.svg',
+		ICON: '/icons/axios.min.svg',
 		TITLE: 'Async',
 		CONTENT: 'Axios, Swr, Websockets',
 	}, {
-		ICON: '/icons/sass.svg',
+		ICON: '/icons/sass.min.svg',
 		TITLE: 'Styling',
 		CONTENT: 'SASS, Tailwind, Bootstrap, Styled Components',
 	}, {
-		ICON: '/icons/figma.svg',
+		ICON: '/icons/figma.min.svg',
 		TITLE: 'Design',
 		CONTENT: 'Figma',
 	}
