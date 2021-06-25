@@ -1,4 +1,5 @@
 import { useWindowWidth } from '@react-hook/window-size'
+import pure from 'hoc/pure'
 import React, { SyntheticEvent, useEffect, useRef, useState } from 'react'
 
 
@@ -14,7 +15,7 @@ interface Props extends Omit<React.ComponentProps<'video'>, 'children'> {
 	preloadWhen: boolean
 }
 
-export const Video = ({
+export const Video = pure(({
 	src,
 	type,
 	play,
@@ -60,7 +61,7 @@ export const Video = ({
 			<source src={src} type={type} />
 		</video>
 	)
-}
+})
 
 function usePlay(play: boolean, videoRef: React.MutableRefObject<HTMLVideoElement | null>) {
 	useEffect(() => {
