@@ -44,10 +44,29 @@ export const Navbar = ({
 
 const Links = ({ isPageLoaded }: { isPageLoaded: boolean }) => {
 
-	const sharedClassNames = cn`tracking-wider p-2 opacity-0 ${isPageLoaded && 'animate-scalein-fast md:animate-from-left-sm'} md:speed-1000`
-	const smallDeviceContactButtonClassNames = cn`tracking-wider p-2 md:hidden opacity-0 ${isPageLoaded && 'md:animate-from-left-sm'}`
-	const bigDeviceContactButtonClassNames = cn`tracking-wider hidden opacity-0 md:speed-1000 ${isPageLoaded && 'md:animate-from-left-sm'} md:inline-block px-3 pt-1.5 pb-1 border border-primary rounded text-primary animate-scalein-fast`
-
+	const sharedClassNames = cn`
+		tracking-wider
+		p-2
+		opacity-0
+		${isPageLoaded && 'animate-scalein-fast md:animate-from-left-sm'} 
+		md:speed-1000
+	`
+	const bigDeviceContactButtonClassNames = cn`
+		tracking-wider 
+		hidden 
+		opacity-0 
+		md:speed-1000 
+		${isPageLoaded && 'md:animate-from-left-sm'} 
+		md:inline-block 
+		px-3 
+		pt-1.5
+		pb-1
+		border
+		border-primary 
+		rounded
+		text-primary
+		animate-scalein-fast
+	`
 
 	return (
 		<>
@@ -56,7 +75,7 @@ const Links = ({ isPageLoaded }: { isPageLoaded: boolean }) => {
 			<button className={`${sharedClassNames} md:await-200`} onClick={scrollsToSection(SECTION_ID.PROJECTS)}>Projects</button>
 			<ResumeLink className={`${sharedClassNames} md:await-100`}>Resume</ResumeLink>
 			{/* Contact: Small devices */}
-			<button className={smallDeviceContactButtonClassNames} onClick={scrollsToSection(SECTION_ID.CONTACT)}>Contact</button>
+			<button className={`${sharedClassNames} md:hidden`} onClick={scrollsToSection(SECTION_ID.CONTACT)}>Contact</button>
 			{/* Contact: Big devices */}
 			<button className={bigDeviceContactButtonClassNames} onClick={scrollsToSection(SECTION_ID.CONTACT)}>
 				<div className='filter brightness-90'>Contact</div>
