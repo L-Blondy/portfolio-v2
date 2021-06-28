@@ -30,7 +30,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 		from,
 		to: process.env.SEND_EMAIL_TO as string,
 		subject: `Portfolio contact form submission from ${fullname}`,
-		text: message,
+		text: `Message sent by ${from}\n\n${message}`,
 	}
 
 	try {
