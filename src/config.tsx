@@ -130,7 +130,7 @@ export const SKILLS: SkillConfig[] = [
 
 
 export const META = {
-	URL: 'https://laurent.blondy.dev/',
+	URL: 'https://blondy.dev/',
 	TITLE: 'Laurent Blondy | Frontend Software Developer',
 	DESCRIPTION: `${HEADER.TITLE.split('<br />').join('')}.\n${HEADER.DESCRIPTION.split('<br />').join('')}`,
 	LANGUAGE: 'en',
