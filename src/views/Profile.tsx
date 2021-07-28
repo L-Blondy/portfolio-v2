@@ -35,7 +35,7 @@ export const Profile = () => {
 			<div className='container py-14 md:py-16 lg:py-20 xl:py-24'>
 				<div className='md:w-2/3 xs:text-lg'>
 
-					<h2 className='h1 pb-6'>
+					<h2 className='h1 pb-6 opacity-85'>
 						<div ref={titleRef}>
 							<TypeWriter startDelay={0} avgTypingDelay={100} disabled={!titleInView} onTypingDone={handleTypingDone} >
 								{PROFILE.TITLE}

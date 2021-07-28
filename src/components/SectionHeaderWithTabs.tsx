@@ -31,9 +31,11 @@ export const SectionHeaderWithTabs = ({
 	return (
 		<header id={id} className={className}>
 			<div ref={ref} className='flex flex-col items-center'>
-				<h2 className={cn`h1 opacity-0 ${inView && 'animate-scalein'}`}>
-					{title}
-				</h2>
+				<div className='opacity-90'>
+					<h2 className={cn`h1 opacity-0 ${inView && 'animate-scalein'}`}>
+						{title}
+					</h2>
+				</div>
 
 				<div className='flex items-center mt-4'>
 					<div className=''>

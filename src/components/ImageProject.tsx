@@ -40,18 +40,22 @@ export const ImageProject = ({
 								/>
 							</div>
 
-							<div className='flex flex-col gap-2.5 mt-5'>
-								<h2 className={cn`text-3xl opacity-0 ${inView2 && 'animate-from-right-sm'} await-100 speed-500`}>
-									{title}
-								</h2>
+							<div className='flex flex-col gap-2 mt-5'>
+								<div className='opacity-85'>
+									<h2 className={cn`text-3xl opacity-0 ${inView2 && 'animate-from-right-sm'} await-100 speed-500`}>
+										{title}
+									</h2>
+								</div>
 
 								<div>
-									<div className={cn`opacity-0 ${inView2 && 'animate-from-right-sm'} await-200 speed-500`}>
+									<div className={cn`opacity-0 pb-1 ${inView2 && 'animate-from-right-sm'} await-200 speed-500`}>
 										<p className='opacity-85'>{description}</p>
 									</div>
-									<h3 className={cn`text-lg my-1.5 opacity-0 await-200 speed-700 ${inView2 && 'animate-from-right-sm'}`}>
-										Technology
-									</h3>
+									<div className='opacity-85'>
+										<h3 className={cn`text-lg my-1.5 opacity-0 await-200 speed-700 ${inView2 && 'animate-from-right-sm'}`}>
+											Technology
+										</h3>
+									</div>
 									<div className={cn`opacity-0 await-300 speed-700 ${inView2 && 'animate-from-right-sm'}`} >
 										<p className='opacity-85'>
 											{technologies}
@@ -63,14 +67,14 @@ export const ImageProject = ({
 									<Link href={projectUrl}>
 										<a target='_blank' hrefLang='en' rel='noopener noreferrer'>
 											<Button>
-												VISIT WEBSITE
+												Visit website
 											</Button>
 										</a>
 									</Link>
 									<Link href={githubUrl}>
 										<a target='_blank' hrefLang='en' rel='noopener noreferrer'>
 											<Button className='w-32' outlined>
-												GITHUB
+												Github
 												<GithubIcon className='pb-px' />
 											</Button>
 										</a>

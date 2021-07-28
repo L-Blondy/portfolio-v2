@@ -25,7 +25,9 @@ export const Contact = () => {
 			<InView>
 				{({ ref, inView }) => (
 					<div ref={ref} className='flex flex-col gap-5 text-center mb-4'>
-						<h2 className={cn`h1 text-primary-xdark opacity-0 ${inView && 'animate-scalein'}`}>Contact me</h2>
+						<div className='opacity-85'>
+							<h2 className={cn`h1 text-primary-xdark opacity-0 ${inView && 'animate-scalein'}`}>Contact me</h2>
+						</div>
 						<div className='text-lg opacity-80'>
 							<p className={cn`opacity-0 await-150 ${inView && 'animate-from-right-sm'}`}>Feel free to reach out.</p>
 							<p className={cn`opacity-0 await-150 ${inView && 'animate-from-left-sm'}`}>I'd love to hear from you!</p>
@@ -88,7 +90,7 @@ export const Contact = () => {
 							</div>
 							<div className={`flex items-center justify-center md:col-span-2 leading-6 opacity-0 await-1100 ${inView && 'animate-from-bottom-sm'}`}>
 								<Button className='mt-2' style={{ minWidth: '10rem' }} disabled={isSubmitting}>
-									SEND MESSAGE
+									Send message
 									{isSubmitting
 										? <LoadingIcon className='ml-0.5' width={18} strokeWidth={6} />
 										: sentWithSuccess ? <SuccessIcon className='mx-0.5' /> : null

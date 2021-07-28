@@ -70,21 +70,21 @@ export const Header = ({
 					${isLoaded ? 'scale-100' : 'scale-98'}
 				`}>
 				<div className={`h-full flex flex-col justify-center transition-opacity  ${isBurgerMenuOpen ? 'animate-fadeout-fast md:animate-fadein-fast' : 'animate-fadein-fast'}`}>
-					<h1 className='mb-3' dangerouslySetInnerHTML={title()} />
+					<h1 className='mb-5 opacity-85' style={{ lineHeight: 1.15 }} dangerouslySetInnerHTML={title()} />
 
-					<h3 className='mb-10 md:mb-12 opacity-80' dangerouslySetInnerHTML={description()} />
+					<h3 className='mb-10 opacity-80 font-medium' dangerouslySetInnerHTML={description()} />
 
 					<div className='flex flex-col md:flex-row-reverse md:justify-end gap-2.5 md:gap-4'>
 						<Button
 							className='mx-auto w-full md:mx-0 md:w-auto'
 							onClick={scrollsToSection(SECTION_ID.PROJECTS)}>
-							JUMP TO PROJECTS
+							View projects
 						</Button>
 						<Button
 							className='mx-auto w-full md:mx-0 md:w-auto'
 							onClick={scrollsToSection(SECTION_ID.PROFILE, ALIGN.CENTER)}
 							outlined>
-							LEARN MORE
+							Learn more
 						</Button>
 					</div>
 				</div>

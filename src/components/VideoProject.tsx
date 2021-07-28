@@ -113,18 +113,22 @@ export const VideoProject = ({
 				<InView rootMargin='99999px 0px 0px 0px' root={getObserverRootElement()}>
 					{({ ref, inView }) => (
 						<div ref={ref} className='flex flex-col'>
-							<h2 className={cn`mb-2.5 text-3xl opacity-0 speed-500 ${inView && 'animate-from-right-sm'}`}>
-								{title}
-							</h2>
+							<div className='opacity-85'>
+								<h2 className={cn`mb-2 text-3xl opacity-0 speed-500 ${inView && 'animate-from-right-sm'}`}>
+									{title}
+								</h2>
+							</div>
 							<div>
-								<div className='opacity-90'>
+								<div className='pb-1 opacity-90'>
 									<p className={cn`opacity-0 await-75 speed-500 ${inView && 'animate-from-right-sm'}`}>
 										{description}
 									</p>
 								</div>
-								<h3 className={cn`text-lg my-1.5 opacity-0 await-150 speed-500 ${inView && 'animate-from-right-sm'}`}>
-									Technology
-								</h3>
+								<div className='opacity-90'>
+									<h3 className={cn`text-lg mb-1.5 mt-1.5 opacity-0 await-150 speed-500 ${inView && 'animate-from-right-sm'}`}>
+										Technology
+									</h3>
+								</div>
 								<div className='opacity-90'>
 									<p className={cn`opacity-0 await-250 speed-500 ${inView && 'animate-from-right-sm'}`}>
 										{technologies}
@@ -136,7 +140,7 @@ export const VideoProject = ({
 									<a hrefLang='en' target='_blank' rel='noopener noreferrer'>
 										<span className='absolute invisible pointer-events-none'>VISIT WEBSITE</span>
 										<Button>
-											VISIT WEBSITE
+											Visit website
 										</Button>
 									</a>
 								</Link>
@@ -144,7 +148,7 @@ export const VideoProject = ({
 									<a hrefLang='en' target='_blank' rel='noopener noreferrer'>
 										<span className='absolute invisible pointer-events-none'>GITHUB</span>
 										<Button className='lg:w-32' outlined>
-											GITHUB
+											Github
 											<GithubIcon className='pb-px' />
 										</Button>
 									</a>

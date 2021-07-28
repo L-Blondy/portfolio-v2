@@ -17,7 +17,7 @@ const sharedClassNames = cn`
 	gap-1.5
 	pt-2
 	pb-1.75
-	px-3.5
+	px-4
 	max-w-2xs
 	rounded
 	hover:filter
@@ -38,9 +38,9 @@ export const Button = ({
 		: 'bg-primary text-white'
 
 	style = {
-		fontSize: '15px',
-		fontFamily: 'Roboto',
-		fontWeight: 500,
+		fontSize: '18px',
+		// fontFamily: 'Roboto',
+		fontWeight: 600,
 		...style
 	}
 
