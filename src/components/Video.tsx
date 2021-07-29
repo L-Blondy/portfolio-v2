@@ -1,4 +1,3 @@
-import { useWindowWidth } from '@react-hook/window-size'
 import pure from 'hoc/pure'
 import React, { SyntheticEvent, useEffect, useRef, useState } from 'react'
 
