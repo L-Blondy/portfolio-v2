@@ -13,7 +13,7 @@ export const postContactForm = (data: Record<CONTACT_FORM_FIELD, string>) => {
 	})
 		.then((res: any) => {
 			if (!res.ok) {
-				console.log(res)
+				console.log(res.json())
 				throw new Error(res.statusText)
 			}
 			return res.json()
