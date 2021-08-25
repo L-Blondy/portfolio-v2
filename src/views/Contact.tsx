@@ -128,7 +128,8 @@ function useContactForm() {
 		setIsSubmitting(true)
 
 		postContactForm(values)
-			.then(() => {
+			.then((res) => {
+				console.log(res)
 				setSentWithSuccess(true)
 				notify('success')('Your message was sent with success!')
 			})
