@@ -12,8 +12,10 @@ export const postContactForm = (data: Record<CONTACT_FORM_FIELD, string>) => {
 		body: JSON.stringify(data)
 	})
 		.then((res: any) => {
-			if (!res.ok)
+			if (!res.ok) {
+				console.log(res)
 				throw new Error(res.statusText)
+			}
 			return res.json()
 		})
 }
