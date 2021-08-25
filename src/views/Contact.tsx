@@ -134,7 +134,7 @@ function useContactForm() {
 			})
 			.catch((e) => {
 				setSentWithSuccess(false)
-				notify('danger')('An unknown error has occured. Please try again later. ' + JSON.stringify(e.message))
+				notify('danger')('An unknown error has occured. Please try again later.')
 			})
 			.finally(() => {
 				setIsSubmitting(false)
